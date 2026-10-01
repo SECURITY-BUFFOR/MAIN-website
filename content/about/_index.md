@@ -19,7 +19,7 @@ I work across the offensive security spectrum with expertise in:
 
 Right now I'm focused on:
 
-- **Axiom** — professional security reporting toolkit
+- **AXIOM** — professional security reporting toolkit
 - **SIPHON** — social-engineering operations toolkit
 
 [Explore the project catalog →]({{< relref "/projects" >}})
