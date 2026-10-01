@@ -1,0 +1,39 @@
+{{- $hero := .Site.Params.hero -}}
+{{- $projects := hugo.Data.projects | default slice -}}
+<div class="mb-hero">
+  <div class="mb-hero__copy">
+    {{ with $hero.badge }}<p class="mb-kicker">{{ . }}</p>{{ end }}
+    <h1>Security tooling.<br><span>Built for operators.</span><i class="mb-cursor" aria-hidden="true"></i></h1>
+    <p class="mb-hero__summary">Independent offensive-security engineering focused on practical tooling, reliable workflows, and clear operator experience.</p>
+    <div class="mb-actions">
+      <a href="{{ "projects/" | relURL }}" class="btn-primary">Explore projects <span aria-hidden="true">→</span></a>
+      <a href="{{ "about/" | relURL }}" class="btn-ghost">About the author</a>
+    </div>
+    <dl class="mb-hero__meta">
+      {{ with $hero.role }}<div><dt>Role</dt><dd>{{ . }}</dd></div>{{ end }}
+      {{ with $hero.location }}<div><dt>Base</dt><dd>{{ . }}</dd></div>{{ end }}
+    </dl>
+  </div>
+
+  <aside class="mb-window mb-panel" aria-labelledby="hero-panel-title">
+    <div class="mb-window__bar"><span id="hero-panel-title">Toolkit</span><span aria-hidden="true">[■]</span></div>
+    <ul class="mb-panel__projects">
+      {{ range $projects }}
+      <li>
+        <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+          <img src="{{ .logo | relURL }}" alt="" width="40" height="40">
+          <span class="mb-panel__name"><b>{{ .name }}</b><small>{{ .category }}</small></span>
+          <em>{{ .status }}</em>
+          <i aria-hidden="true">↗</i>
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+    {{ with $hero.now }}
+    <div class="mb-panel__focus">
+      <p>{{ $hero.nowLabel | default "Current focus" }}</p>
+      <ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+    </div>
+    {{ end }}
+  </aside>
+</div>

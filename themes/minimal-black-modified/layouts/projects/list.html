@@ -1,0 +1,17 @@
+{{ define "main" }}
+{{- $projects := hugo.Data.projects | default slice -}}
+<section class="layout-page mb-catalog-page">
+  <header class="mb-page-header">
+    <p class="mb-kicker">Security Buffor</p>
+    <h1>Project catalog</h1>
+    <p>{{ .Site.Params.projectsIntro }}</p>
+  </header>
+  <nav class="mb-category-key" aria-label="Project categories">
+    <span>Jump to</span>
+    {{ range $projects }}<a href="#{{ .slug }}">{{ .category }}</a>{{ end }}
+  </nav>
+  <div class="project-catalog">
+    {{ range $projects }}<div id="{{ .slug }}">{{ partial "components/project-link-card.html" . }}</div>{{ end }}
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,93 @@
+{{- $page := .Page -}}
+{{- $description := .Description -}}
+{{- $keywords := .Keywords -}}
+{{- $publisherName := $page.Site.Params.seo.organizationName | default $page.Site.Params.author | default $page.Site.Title -}}
+{{- $publisher := dict "@type" "Organization" "name" $publisherName "url" $page.Site.BaseURL -}}
+{{- /* Google wants a logo on the publishing Organization; without it an Article
+       is ineligible for several rich results. */ -}}
+{{- with $page.Site.Params.seo.organizationLogo -}}
+  {{- $publisher = merge $publisher (dict "logo" (dict "@type" "ImageObject" "url" (. | absURL))) -}}
+{{- end -}}
+{{- $socialImage := $page.Params.image | default $page.Site.Params.defaultImage -}}
+{{- $items := slice -}}
+
+{{- if $page.IsHome -}}
+  {{- $items = $items | append (dict
+    "@context" "https://schema.org"
+    "@type" "WebSite"
+    "name" $page.Site.Title
+    "url" $page.Site.BaseURL
+    "description" $description
+    "publisher" $publisher
+    "keywords" (delimit $keywords ", ")
+    "inLanguage" ($page.Site.Language.Lang | default "en")
+    "image" (cond (ne $socialImage nil) ($socialImage | absURL) "")
+  ) -}}
+{{- else -}}
+  {{- $breadcrumbs := slice -}}
+  {{- $position := 1 -}}
+  {{- range $page.Ancestors.Reverse -}}
+    {{- $name := .Title -}}
+    {{- if .IsHome -}}
+      {{- $name = "Home" -}}
+    {{- else if not $name -}}
+      {{- $name = .Section | humanize -}}
+    {{- end -}}
+    {{- $breadcrumbs = $breadcrumbs | append (dict "@type" "ListItem" "position" $position "name" $name "item" .Permalink) -}}
+    {{- $position = add $position 1 -}}
+  {{- end -}}
+  {{- $breadcrumbs = $breadcrumbs | append (dict "@type" "ListItem" "position" $position "name" $page.Title "item" $page.Permalink) -}}
+  {{- if ge (len $breadcrumbs) 2 -}}
+    {{- $items = $items | append (dict
+      "@context" "https://schema.org"
+      "@type" "BreadcrumbList"
+      "itemListElement" $breadcrumbs
+    ) -}}
+  {{- end -}}
+
+  {{- if and (not $page.IsPage) (not $page.IsHome) -}}
+    {{- $collection := dict
+      "@context" "https://schema.org"
+      "@type" "CollectionPage"
+      "name" $page.Title
+      "description" $description
+      "url" $page.Permalink
+      "isPartOf" (dict "@type" "WebSite" "name" $page.Site.Title "url" $page.Site.BaseURL)
+      "publisher" $publisher
+      "inLanguage" ($page.Site.Language.Lang | default "en")
+    -}}
+    {{- with $socialImage -}}
+      {{- $collection = merge $collection (dict "image" (. | absURL)) -}}
+    {{- end -}}
+    {{- $items = $items | append $collection -}}
+  {{- end -}}
+
+  {{- if $page.IsPage -}}
+    {{- $article := dict
+      "@context" "https://schema.org"
+      "@type" "Article"
+      "headline" $page.Title
+      "description" $description
+      "url" $page.Permalink
+      "mainEntityOfPage" $page.Permalink
+      "author" $publisher
+      "publisher" $publisher
+      "keywords" (delimit $keywords ", ")
+      "inLanguage" ($page.Site.Language.Lang | default "en")
+    -}}
+    {{- with $socialImage -}}
+      {{- $article = merge $article (dict "image" (slice (. | absURL))) -}}
+    {{- end -}}
+    {{- if not $page.Date.IsZero -}}
+      {{- $article = merge $article (dict "datePublished" ($page.Date.Format "2006-01-02T15:04:05Z07:00")) -}}
+    {{- end -}}
+    {{- if not $page.Lastmod.IsZero -}}
+      {{- $article = merge $article (dict "dateModified" ($page.Lastmod.Format "2006-01-02T15:04:05Z07:00")) -}}
+    {{- end -}}
+    {{- $items = $items | append $article -}}
+  {{- end -}}
+{{- end -}}
+
+{{- range $items }}
+<script type="application/ld+json">{{ . | jsonify | safeJS }}</script>
+{{- end }}

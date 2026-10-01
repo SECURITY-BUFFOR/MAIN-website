@@ -1,0 +1,16 @@
+{{- with .Site.Params.home.capabilities -}}
+<section class="mb-section" aria-labelledby="home-capabilities-title">
+  <div class="mb-section__head">
+    <h2 id="home-capabilities-title">{{ $.Site.Params.home.capabilitiesTitle | default "What I do" }}</h2>
+    <a href="{{ "about/" | relURL }}">About the author <span aria-hidden="true">→</span></a>
+  </div>
+  <ul class="mb-grid">
+    {{ range . }}
+    <li class="mb-grid__cell">
+      <h3>{{ .title }}</h3>
+      <p>{{ .text }}</p>
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{- end -}}

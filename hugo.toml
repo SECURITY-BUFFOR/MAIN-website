@@ -1,0 +1,363 @@
+baseURL = 'https://securitybuffor.com'
+locale = 'en-US'
+title = 'SECURITY-BUFFOR'
+theme = "minimal-black-modified"
+enableRobotsTXT = true
+
+# Enable search index generation and web app manifest
+[outputs]
+  home = ["HTML", "RSS", "JSON", "WebAppManifest"]
+
+[outputFormats.WebAppManifest]
+  mediaType = "application/manifest+json"
+  rel = "manifest"
+  baseName = "manifest"
+  isPlainText = true
+  notAlternative = true
+
+[params]
+  brand = "SECURITY-BUFFOR"
+  description = "Practical pentest notes, malware analysis, threat research and security tooling for offensive and defensive security work."
+  author = "SECURITY-BUFFOR"
+  defaultImage = "images/securitybuffor-social.png"
+  keywords = [
+    "pentest",
+    "penetration testing",
+    "malware analysis",
+    "threat research",
+    "red team",
+    "blue team",
+    "incident response",
+    "vulnerability research",
+    "security tooling",
+    "cybersecurity documentation"
+  ]
+
+  # Favicon - Place your favicon files in /static/ directory
+  # Supported formats: .ico, .png, .svg
+  favicon = "favicon.ico"
+  appleTouchIcon = "icons/apple-touch-icon.png"
+
+  [params.seo]
+    twitterSite = ""
+    organizationName = "Security Buffor"
+    organizationLogo = "images/logo.png"
+
+  # Logo (optional)
+  logo = "images/logo.png"
+
+  # Project and blog intro text
+  projectsIntro = "A focused catalog of offensive-security software. Each entry is a concise overview and an external project link—documentation lives with the tool when available."
+
+  # Web App Manifest Configuration (PWA support)
+  [params.manifest]
+    themeColor = "#7d1d1d"
+    backgroundColor = "#000000"
+    categories = ["security", "portfolio", "developer"]
+
+    # Pinned to the files actually present in static/icons/. Without these the
+    # template falls back to android-chrome-*/favicon-16x16 names we do not ship.
+    [[params.manifest.icons]]
+      src = "icons/web-app-manifest-192x192.png"
+      sizes = "192x192"
+      type = "image/png"
+      purpose = "any maskable"
+
+    [[params.manifest.icons]]
+      src = "icons/web-app-manifest-512x512.png"
+      sizes = "512x512"
+      type = "image/png"
+      purpose = "any maskable"
+
+    [[params.manifest.icons]]
+      src = "icons/apple-touch-icon.png"
+      sizes = "180x180"
+      type = "image/png"
+
+    [[params.manifest.icons]]
+      src = "icons/favicon-96x96.png"
+      sizes = "96x96"
+      type = "image/png"
+    #   src = "/icons/android-chrome-192x192.png"
+    #   sizes = "192x192"
+    #   type = "image/png"
+    #   purpose = "any maskable"
+
+  # Theme Configuration
+  [params.theme]
+    defaultTheme = "dark"  # Options: "light", "dark", "system"
+
+  # Home Page Configuration
+  [params.home]
+    sections = ["hero", "projects"]
+    showNowSection = true
+    showFeaturedProjects = true
+    showLatestPosts = false
+    featuredProjectsLimit = 3
+    projectsTitle = "Operator toolkit"
+    projectsSubtitle = ""
+    blogTitle = "New Posts"
+    blogSubtitle = ""
+    techMarqueeLabel = "Experienced In"
+
+    # Technology Stack Display
+    [[params.home.tech]]
+      label = "Python"
+      icon = "devicon-python-plain"
+
+    [[params.home.tech]]
+      label = "Java"
+      icon = "devicon-java-plain"
+
+    [[params.home.tech]]
+      label = "Spring"
+      icon = "devicon-spring-plain"  
+
+    [[params.home.tech]]
+      label = "Vaadin"
+      icon = "devicon-vaadin-plain"    
+
+    [[params.home.tech]]
+      label = "Debian"
+      icon = "devicon-debian-plain"
+
+    [[params.home.tech]]
+      label = "GitHub"
+      icon = "devicon-github-original"
+
+    [[params.home.tech]]
+      label = "Docker"
+      icon = "devicon-docker-plain"
+
+    [[params.home.techReverse]]
+      label = "PostgreSQL"
+      icon = "devicon-postgresql-plain"
+
+    [[params.home.techReverse]]
+      label = "MongoDB"
+      icon = "devicon-mongodb-plain"
+
+    [[params.home.techReverse]]
+      label = "Git"
+      icon = "devicon-git-plain"
+
+    [[params.home.techReverse]]
+      label = "Hugo"
+      icon = "devicon-hugo-plain"  
+
+    [[params.home.techReverse]]
+      label = "Jenkins"
+      icon = "devicon-jenkins-plain"   
+
+    [[params.home.techReverse]]
+      label = "JetBrains"
+      icon = "devicon-jetbrains-plain" 
+
+    [[params.home.techReverse]]
+      label = "Json"
+      icon = "devicon-json-plain" 
+
+    [[params.home.techReverse]]
+      label = "Linux"
+      icon = "devicon-linux-plain"          
+
+    [[params.home.techReverse]]
+      label = "Liquibase"
+      icon = "devicon-liquibase-plain" 
+
+    [[params.home.techReverse]]
+      label = "Markdown"
+      icon = "devicon-markdown-original"  
+
+    [[params.home.techReverse]]
+      label = "YAML"
+      icon = "devicon-yaml-plain"  
+
+    [[params.home.techReverse]]
+      label = "Wordpress"
+      icon = "devicon-wordpress-plain"
+
+    [[params.home.techReverse]]
+      label = "WooCommerce"
+      icon = "devicon-woocommerce-plain"            
+
+    [[params.home.techReverse]]
+      label = "Traefik"
+      icon = "devicon-traefikproxy-plain" 
+
+    [[params.home.techReverse]]
+      label = "pfSense"
+      icon = "devicon-pfsense-plain"       
+
+  # About Page Alternative Layout Configuration - Optional
+  [params.about.alt]
+    # Stats displayed in the profile card sidebar
+  
+
+    # Skills/Tech Stack badges with icons
+    [[params.about.alt.skills]]
+      label = "C++"
+      icon = "devicon-cplusplus-plain"
+
+    [[params.about.alt.skills]]
+      label = "C"
+      icon = "devicon-c-plain"
+    
+    [[params.about.alt.skills]]
+      label = "C#"
+      icon = "devicon-csharp-plain"
+
+    [[params.about.alt.skills]]
+      label = "Python"
+      icon = "devicon-python-plain"
+
+    [[params.about.alt.skills]]
+      label = "Docker"
+      icon = "devicon-docker-plain"
+
+
+  # Hero Section Configuration
+  [params.hero]
+    badge = "Offensive Security Engineering"
+    title = "Security tooling built for operators."
+    role = "Red Team Specialist and Malware Developer"
+    summary = "Practical software for authorized security operations."
+    avatar = "images/avatar.png"
+    location = "Poland"
+    focus = "Currently focused on offensive-security tooling and operator experience."
+    available = true
+    availableLabel = "Available for work"
+
+    nowLabel = "Current focus"
+    nowIntro = "Building the Security Buffor toolkit."
+    now = ["Reporting workflows", "Adversary simulation", "Operational infrastructure"]
+
+    [params.hero.primary]
+      label = "View Projects"
+      href = "/projects/"
+
+    [params.hero.secondary]
+      label = "About"
+      href = "/about/"
+      
+  # Icon Libraries
+  [params.icons]
+    useFontAwesome = true
+    useDevicon = true
+
+  # Social Links
+  [[params.social]]
+    label = "GitHub"
+    url = "https://github.com/SECURITY-BUFFOR"
+    icon = "fa-brands fa-github"
+
+  [[params.social]]
+    label = "LinkedIn"
+    url = "https://www.linkedin.com/in/kgres/"
+    icon = "fa-brands fa-linkedin-in"
+
+  [[params.social]]
+    label = "Email"
+    url = "mailto:h4mr3r@securitybuffor.com"
+    icon = "fa-regular fa-envelope"
+
+  # Analytics Configuration
+  [params.analytics]
+    # Google Analytics (GA4)
+    # googleAnalytics = "G-XXXXXXXXXX"
+
+    # Plausible Analytics (privacy-friendly)
+    # [params.analytics.plausible]
+    #   enabled = true
+    #   domain = "yourdomain.com"
+    #   scriptUrl = "https://plausible.io/js/script.js"
+
+    # Umami Analytics (self-hosted option)
+    # [params.analytics.umami]
+    #   enabled = true
+    #   scriptUrl = "https://analytics.yourdomain.com/script.js"
+    #   websiteId = "your-website-id"
+
+    # Fathom Analytics
+    # [params.analytics.fathom]
+    #   enabled = true
+    #   scriptUrl = "https://cdn.usefathom.com/script.js"
+    #   siteId = "YOUR-SITE-ID"
+
+# Navigation Menu
+[menu]
+  [[menu.main]]
+    name = "Home"
+    pageRef = "/"
+    weight = 1
+    identifier = "home"
+    [menu.main.params]
+      icon = "fa-solid fa-house"
+
+
+  [[menu.main]]
+    name = "About"
+    pageRef = "about"
+    weight = 2
+    identifier = "about"
+    [menu.main.params]
+      icon = "fa-solid fa-user"
+
+  [[menu.main]]
+    name = "Projects"
+    pageRef = "projects"
+    weight = 3
+    identifier = "projects"
+    [menu.main.params]
+      icon = "fa-regular fa-folder-open"
+
+# Markup Configuration
+[markup]
+  # Table of Contents
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+
+  # Goldmark Renderer (Markdown)
+  [markup.goldmark.renderer]
+    unsafe = true
+
+  [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true
+
+  [markup.goldmark.extensions]
+    typographer = true
+    linkify = true
+    table = true
+    strikethrough = true
+    taskList = true
+    definitionList = true
+    footnote = true
+
+    [markup.goldmark.extensions.extras.delete]
+      enable = true
+    [markup.goldmark.extensions.extras.insert]
+      enable = true
+    [markup.goldmark.extensions.extras.mark]
+      enable = true
+
+  # Syntax Highlighting
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = false
+    lineNumbersInTable = false
+    noClasses = false
+    style = "monokai"
+    tabWidth = 2
+
+# Taxonomies
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+# Privacy Configuration
+[privacy]
+  [privacy.youtube]
+    privacyEnhanced = true

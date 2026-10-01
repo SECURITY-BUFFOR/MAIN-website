@@ -1,0 +1,35 @@
+- name: Axiom
+  slug: axiom
+  category: Reporting
+  description: A structured reporting toolkit for professional security assessments, evidence handling, and clear deliverables.
+  status: Not public
+  logo: images/projects/axiom.svg
+  url: https://axiom.securitybuffor.com
+- name: SIPHON
+  slug: siphon
+  category: Social engineering
+  description: A social-engineering toolkit for controlled campaign workflows, operator coordination, and authorized engagements.
+  status: Not public
+  logo: images/projects/siphon.svg
+  url: https://siphon.securitybuffor.com
+#- name: Asmodeus
+#  slug: asmodeus
+#  category: Command & control
+#  description: A command-and-control platform designed for research, adversary simulation, and red-team operations.
+#  status: In development
+#  logo: images/projects/asmodeus.svg
+#  url: https://github.com/SECURITY-BUFFOR
+#- name: SOLACE
+#  slug: solace
+#  category: Obfuscation
+#  description: An obfuscation engine for studying defensive visibility and resilient authorized testing workflows.
+#  status: Research
+#  logo: images/projects/solace.svg
+#  url: https://github.com/SECURITY-BUFFOR
+#- name: RED-LIGHT
+#  slug: red-light
+#  category: Infrastructure
+#  description: A redirector manager for repeatable deployment, lifecycle control, and operational infrastructure hygiene.
+#  status: In development
+#  logo: images/projects/red-light.svg
+#  url: https://github.com/SECURITY-BUFFOR

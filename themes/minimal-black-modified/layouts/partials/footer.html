@@ -1,0 +1,12 @@
+<footer class="mb-footer">
+  <div class="mb-footer__inner">
+    <p class="mb-footer__copy">&copy; {{ now.Format "2006" }} {{ .Site.Title }}<span> — All rights reserved.</span></p>
+    {{ with .Site.Params.social }}
+    <nav class="mb-footer__keys" aria-label="Social links">
+      {{ range $i, $s := . }}
+      <a href="{{ $s.url }}"{{ if not (hasPrefix $s.url "mailto:") }} target="_blank" rel="noopener noreferrer"{{ end }}><b>{{ add $i 1 }}</b><span>{{ $s.label }}</span></a>
+      {{ end }}
+    </nav>
+    {{ end }}
+  </div>
+</footer>

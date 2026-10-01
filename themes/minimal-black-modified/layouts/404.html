@@ -1,0 +1,34 @@
+{{ define "main" }}
+<section class="layout-page mb-error">
+  <div class="mb-window mb-error__window">
+    <div class="mb-window__bar"><span>ERROR 404</span><span aria-hidden="true">[■]</span></div>
+    <div class="mb-window__body">
+      <p class="mb-error__code" aria-hidden="true">404</p>
+      <h1 class="mb-error__title">File not found</h1>
+      <p class="mb-error__text">The page you're looking for doesn't exist or has been moved.</p>
+      <p class="mb-error__prompt">Abort, Retry, Ignore, Search?<span class="mb-cursor" aria-hidden="true"></span></p>
+      <div class="mb-error__actions">
+        <a href="{{ site.Home.RelPermalink }}" class="btn-primary" data-key="a"><kbd>A</kbd>bort — home</a>
+        <button type="button" class="btn-ghost" data-key="r" onclick="location.reload()"><kbd>R</kbd>etry</button>
+        <button type="button" class="btn-ghost" data-key="i" onclick="history.back()"><kbd>I</kbd>gnore — go back</button>
+        <button type="button" class="btn-ghost" data-key="s" onclick="window.MinimalSearch && window.MinimalSearch.open()"><kbd>S</kbd>earch</button>
+      </div>
+    </div>
+  </div>
+
+  <nav class="mb-error__links" aria-label="Suggested pages">
+    {{ with .Site.GetPage "/about" }}<a href="{{ .RelPermalink }}"><b>01</b><span>About</span><small>Meet the author</small></a>{{ end }}
+    {{ with .Site.GetPage "/projects" }}<a href="{{ .RelPermalink }}"><b>02</b><span>Projects</span><small>Explore the toolkit</small></a>{{ end }}
+  </nav>
+</section>
+
+<script>
+  document.addEventListener("keydown", function (e) {
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    var t = e.target;
+    if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
+    var btn = document.querySelector('.mb-error__actions [data-key="' + e.key.toLowerCase() + '"]');
+    if (btn) { e.preventDefault(); btn.click(); }
+  });
+</script>
+{{ end }}

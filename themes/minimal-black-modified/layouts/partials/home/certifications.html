@@ -1,0 +1,17 @@
+{{- with hugo.Data.certifications -}}
+<section class="mb-section" aria-labelledby="home-certs-title">
+  <div class="mb-section__head">
+    <h2 id="home-certs-title">{{ $.Site.Params.home.certificationsTitle | default "Certifications" }}</h2>
+    <a href="{{ "about/" | relURL }}#certifications">See certificates <span aria-hidden="true">→</span></a>
+  </div>
+  <ul class="mb-certs">
+    {{ range . }}
+    <li>
+      <b>{{ .code }}</b>
+      <span>{{ .name }}</span>
+      <small>{{ .issuer }}</small>
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{- end -}}

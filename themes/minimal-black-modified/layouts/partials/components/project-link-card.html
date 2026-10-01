@@ -1,0 +1,15 @@
+{{- /* props: a project from data/projects.yaml */ -}}
+<article class="mb-card">
+  <div class="mb-card__bar"><span>{{ .category }}</span><span aria-hidden="true">[■]</span></div>
+  <div class="mb-card__body">
+    <div class="mb-card__title">
+      <img src="{{ .logo | relURL }}" alt="" width="44" height="44" loading="lazy">
+      <h3>{{ .name }}</h3>
+    </div>
+    <p>{{ .description }}</p>
+  </div>
+  <div class="mb-card__foot">
+    <span class="mb-status">{{ .status }}</span>
+    <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="Open {{ .name }} project link">Open <span aria-hidden="true">↗</span></a>
+  </div>
+</article>

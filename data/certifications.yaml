@@ -1,0 +1,8 @@
+# Shown on the home page. The About page keeps its own table + certificate gallery.
+- { code: CRTL, name: Certified Red Team Lead, issuer: Zero-Point Security }
+- { code: CRTO, name: Certified Red Team Operator, issuer: Zero-Point Security }
+- { code: CPTS, name: Certified Penetration Testing Specialist, issuer: HackTheBox }
+- { code: CRTP, name: Certified Red Team Professional, issuer: Altered Security }
+- { code: AZRTS, name: Azure Red Team Specialist, issuer: Cyberwarfare Labs }
+- { code: AD-RTS, name: Active Directory Red Team Specialist, issuer: Cyberwarfare Labs }
+- { code: CRTA, name: Certified Red Team Analyst, issuer: Cyberwarfare Labs }

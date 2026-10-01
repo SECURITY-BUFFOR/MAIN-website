@@ -1,0 +1,9 @@
+<section class="mb-section" aria-labelledby="home-projects-title">
+  <div class="mb-section__head">
+    <h2 id="home-projects-title">{{ .Site.Params.home.projectsTitle | default "Projects" }}</h2>
+    <a href="{{ "projects/" | relURL }}">Full catalog <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="project-catalog project-catalog--home">
+    {{ range first 3 (hugo.Data.projects | default slice) }}{{ partial "components/project-link-card.html" . }}{{ end }}
+  </div>
+</section>

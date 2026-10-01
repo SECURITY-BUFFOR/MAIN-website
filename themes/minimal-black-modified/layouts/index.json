@@ -1,0 +1,30 @@
+{{- $pages := slice -}}
+
+{{- /* Section landing pages (about, projects, ...) plus any regular pages */ -}}
+{{- range (.Site.Sections | append .Site.RegularPages) -}}
+  {{- $summary := .Description -}}
+  {{- if not $summary -}}
+    {{- $summary = .Summary -}}
+  {{- end -}}
+
+  {{- $pages = $pages | append (dict
+    "title"     .Title
+    "permalink" .Permalink
+    "section"   .Section
+    "summary"   (plainify $summary | htmlUnescape)
+  ) -}}
+{{- end -}}
+
+{{- /* Projects live in data/projects.yaml, so index them explicitly */ -}}
+{{- $catalogURL := "/projects/" | absURL -}}
+{{- with site.GetPage "/projects" }}{{ $catalogURL = .Permalink }}{{ end -}}
+{{- range hugo.Data.projects | default slice -}}
+  {{- $pages = $pages | append (dict
+    "title"     .name
+    "permalink" (printf "%s#%s" $catalogURL .slug)
+    "section"   "projects"
+    "summary"   (printf "%s — %s" .category .description)
+  ) -}}
+{{- end -}}
+
+{{- dict "pages" $pages | jsonify -}}

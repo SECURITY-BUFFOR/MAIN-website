@@ -1,0 +1,60 @@
+{{- $title := .Site.Title -}}
+{{- $shortName := .Site.Params.brand | default .Site.Title -}}
+{{- $description := .Site.Params.description | default "A minimal, dark-mode first personal site" -}}
+{{- $themeColor := .Site.Params.manifest.themeColor | default "#7d1d1d" -}}
+{{- $bgColor := .Site.Params.manifest.backgroundColor | default "#000000" -}}
+{{- $lang := .Site.Language.Lang | default "en" -}}
+{
+  "name": "{{ $title }}",
+  "short_name": "{{ $shortName }}",
+  "description": "{{ $description }}",
+  {{/* relURL "/" does NOT prepend a baseURL sub-path; the home page's own
+       permalink always does, so the PWA scope stays correct off the apex. */}}
+  "start_url": "{{ site.Home.RelPermalink }}",
+  "scope": "{{ site.Home.RelPermalink }}",
+  "display": "standalone",
+  "background_color": "{{ $bgColor }}",
+  "theme_color": "{{ $themeColor }}",
+  "orientation": "portrait-primary",
+  "icons": [
+    {{- if .Site.Params.manifest.icons }}
+      {{- range $i, $icon := .Site.Params.manifest.icons }}
+        {{- if $i }},{{ end }}
+    {
+      "src": "{{ $icon.src | relURL }}",
+      "sizes": "{{ $icon.sizes }}",
+      "type": "{{ $icon.type | default "image/png" }}"
+      {{- with $icon.purpose }},"purpose": "{{ . }}"{{ end }}
+    }
+      {{- end }}
+    {{- else }}
+    {{- /* Fallback: the names this theme actually ships, routed through relURL
+           so they survive a sub-path deployment. */ -}}
+    {
+      "src": "{{ "icons/web-app-manifest-192x192.png" | relURL }}",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "{{ "icons/web-app-manifest-512x512.png" | relURL }}",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "{{ "icons/apple-touch-icon.png" | relURL }}",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "{{ "icons/favicon-96x96.png" | relURL }}",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+    {{- end }}
+  ],
+  "categories": {{ .Site.Params.manifest.categories | default (slice "security" "portfolio" "developer") | jsonify }},
+  "lang": "{{ $lang }}",
+  "dir": "ltr"
+}
