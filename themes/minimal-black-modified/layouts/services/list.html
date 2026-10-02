@@ -1,0 +1,118 @@
+{{ define "main" }}
+{{- $services := hugo.Data.services | default slice -}}
+<div class="layout-page sv-page">
+
+  <header class="sv-hero">
+    <div class="sv-hero__copy">
+      <p class="mb-kicker"><span>//</span> Authorized offensive security</p>
+      <h1>Test what matters.<br><span>Fix what fails.</span></h1>
+      <p class="sv-hero__lede">{{ .Site.Params.servicesIntro }}</p>
+      <div class="mb-actions">
+        <a class="btn-primary" href="#services-index">Explore services <span aria-hidden="true">↓</span></a>
+        <a class="btn-ghost" href="mailto:{{ .Site.Params.servicesContactEmail }}?subject=Security%20engagement%20inquiry">Scope an engagement</a>
+      </div>
+    </div>
+    <aside class="mb-window mb-window--terminal sv-hero__panel" aria-labelledby="sv-terms-title">
+      <div class="mb-window__bar"><span id="sv-terms-title">engagement.cfg</span><span aria-hidden="true">[■]</span></div>
+      <div class="mb-window__body">
+        <p class="mb-term__cmd"><i>$</i> cat engagement.cfg</p>
+        <ul class="mb-term__list">
+          <li><b>Authorization</b><span class="mb-term__leader" aria-hidden="true"></span><em>Required</em></li>
+          <li><b>Scope</b><span class="mb-term__leader" aria-hidden="true"></span><em>In writing</em></li>
+          <li><b>Stop conditions</b><span class="mb-term__leader" aria-hidden="true"></span><em>Defined</em></li>
+          <li><b>Contacts</b><span class="mb-term__leader" aria-hidden="true"></span><em>Named</em></li>
+          <li><b>Deliverable</b><span class="mb-term__leader" aria-hidden="true"></span><em>Full report</em></li>
+          <li><b>Readout</b><span class="mb-term__leader" aria-hidden="true"></span><em>Tech + exec</em></li>
+        </ul>
+        <p class="mb-term__ok">[OK] {{ len $services }} services loaded<i class="mb-cursor" aria-hidden="true"></i></p>
+      </div>
+    </aside>
+  </header>
+
+  {{ with hugo.Data.certifications }}
+  <section class="sv-proof" aria-label="Who delivers the work">
+    <div class="sv-proof__who">
+      <p class="sv-proof__label">Delivered by</p>
+      <p class="sv-proof__name"><a href="{{ "about/" | relURL }}">Krzysztof Greś</a></p>
+      <p class="sv-proof__role">{{ site.Params.hero.role }} · 5+ years of enterprise offensive security at KPMG Poland and Netia S.A.</p>
+    </div>
+    <ul class="sv-proof__certs" aria-label="Certifications">
+      {{ range . }}<li title="{{ .name }} — {{ .issuer }}">{{ .code }}</li>{{ end }}
+    </ul>
+  </section>
+  {{ end }}
+
+  <section id="services-index" class="sv-section" aria-labelledby="sv-index-title">
+    <div class="sv-section__head">
+      <p class="mb-kicker"><span>01</span> Services</p>
+      <h2 id="sv-index-title">Pick the question you need answered</h2>
+      <p>Each engagement is built around one clear security question. Start with the question — the service follows.</p>
+    </div>
+    <ol class="sv-index">
+      {{ range $services }}
+      <li id="{{ .slug }}" class="sv-row">
+        <a class="sv-row__link" href="{{ printf "services/%s/" .slug | relURL }}">
+          <span class="sv-row__icon" aria-hidden="true">{{ with .icon }}<i class="{{ . }}"></i>{{ end }}</span>
+          <span class="sv-row__main">
+            <span class="sv-row__cat">SV-{{ .code }} · {{ .category }}</span>
+            <span class="sv-row__title">{{ .title }}</span>
+            {{ with .question }}<span class="sv-row__q">“{{ . }}”</span>{{ end }}
+            <span class="sv-row__desc">{{ .description }}</span>
+            <span class="sv-row__tags">{{ range .scope }}<span>{{ . }}</span>{{ end }}</span>
+          </span>
+          <span class="sv-row__go"><span>Details</span> <span aria-hidden="true">→</span></span>
+        </a>
+      </li>
+      {{ end }}
+    </ol>
+  </section>
+
+  {{ with .Params.method }}
+  <section class="sv-section" aria-labelledby="sv-method-title">
+    <div class="sv-section__head">
+      <p class="mb-kicker"><span>02</span> Method</p>
+      <h2 id="sv-method-title">One disciplined process, every engagement</h2>
+      <p>The techniques change with the service. The way the work is controlled does not.</p>
+    </div>
+    <ol class="sv-steps">
+      {{ range $i, $step := . }}
+      <li class="sv-step">
+        <span class="sv-step__num">{{ printf "%02d" (add $i 1) }}</span>
+        <h3>{{ $step.title }}</h3>
+        <p>{{ $step.text }}</p>
+      </li>
+      {{ end }}
+    </ol>
+  </section>
+  {{ end }}
+
+  <section class="sv-section sv-section--band" aria-labelledby="deliverable-title">
+    {{ partial "services/report.html" (dict
+      "context" .
+      "title" "Offensive security engagement"
+      "items" (slice "Executive summary for leadership" "Attack narrative and timeline" "Evidence-backed, risk-ranked findings" "Detection and response observations" "Prioritized remediation roadmap")
+    ) }}
+  </section>
+
+  {{ with .Params.principles }}
+  <section class="sv-section" aria-labelledby="sv-rules-title">
+    <div class="sv-section__head">
+      <p class="mb-kicker"><span>03</span> Rules of engagement</p>
+      <h2 id="sv-rules-title">Safe by design, not by luck</h2>
+      <p>Every service is delivered only under these conditions — no exceptions.</p>
+    </div>
+    <ul class="sv-principles">
+      {{ range . }}
+      <li>
+        <span class="sv-principles__icon" aria-hidden="true"><i class="{{ .icon }}"></i></span>
+        <h3>{{ .title }}</h3>
+        <p>{{ .text }}</p>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+
+  {{ partial "services/cta.html" (dict "context" .) }}
+</div>
+{{ end }}

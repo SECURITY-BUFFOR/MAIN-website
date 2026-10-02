@@ -1,0 +1,513 @@
+<!DOCTYPE html><html lang="en"
+  data-cb-collapse-enabled=""
+  data-cb-collapse-default=""
+  data-cb-collapse-lines=""
+  data-cb-collapse-auto-height=""
+  data-cb-collapse-collapsed-height="">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=43733&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Adversary Emulation | SECURITY-BUFFOR</title>
+
+<meta name="description" content="Threat-informed adversary emulation that replays relevant threat-actor techniques, mapped to MITRE ATT&CK, to measure real defensive coverage." />
+<meta name="keywords" content="adversary emulation, MITRE ATT&amp;CK, threat-informed defense, purple team, detection coverage" />
+<meta name="author" content="SECURITY-BUFFOR" />
+<link rel="canonical" href="http://127.0.0.1:43733/services/adversary-emulation/" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+
+<meta property="og:site_name" content="SECURITY-BUFFOR" />
+<meta property="og:title" content="Adversary Emulation | SECURITY-BUFFOR" />
+<meta property="og:description" content="Threat-informed adversary emulation that replays relevant threat-actor techniques, mapped to MITRE ATT&CK, to measure real defensive coverage." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://127.0.0.1:43733/services/adversary-emulation/" />
+<meta property="og:image" content="http://127.0.0.1:43733/images/securitybuffor-social.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Adversary Emulation" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Adversary Emulation | SECURITY-BUFFOR" />
+<meta name="twitter:description" content="Threat-informed adversary emulation that replays relevant threat-actor techniques, mapped to MITRE ATT&CK, to measure real defensive coverage." />
+<meta name="twitter:image" content="http://127.0.0.1:43733/images/securitybuffor-social.png" />
+<meta name="twitter:image:alt" content="Adversary Emulation" />
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"http://127.0.0.1:43733/","name":"Home","position":1},{"@type":"ListItem","item":"http://127.0.0.1:43733/services/","name":"Offensive Security Services","position":2},{"@type":"ListItem","item":"http://127.0.0.1:43733/services/adversary-emulation/","name":"Adversary Emulation","position":3}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","description":"Threat-informed adversary emulation that replays relevant threat-actor techniques, mapped to MITRE ATT\u0026CK, to measure real defensive coverage.","name":"Adversary Emulation","provider":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://127.0.0.1:43733/images/logo.png"},"name":"Security Buffor","url":"http://127.0.0.1:43733/"},"serviceType":"Threat-informed testing","url":"http://127.0.0.1:43733/services/adversary-emulation/"}</script>
+
+
+
+
+
+
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+
+
+
+  <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png" />
+
+
+
+
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+
+
+
+
+  
+    
+  
+    
+  
+    
+  
+    
+      <link rel="manifest" href="http://127.0.0.1:43733/manifest.webmanifest" />
+    
+  
+
+
+<meta name="theme-color" content="#0b0b0b" />
+
+<link rel="preload" href="/vendor/jetbrains-mono/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/vendor/jetbrains-mono/jetbrains-mono.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/monoblood.css">
+
+  <link rel="stylesheet" href="/css/services.css">
+
+
+
+  <link
+    rel="preload"
+    as="style"
+    href="/vendor/fontawesome/css/all.min.css"
+    onload="this.onload=null;this.rel='stylesheet'"
+  >
+  <noscript><link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css"></noscript>
+
+
+
+
+
+
+
+
+<script>
+  (function () {
+    try {
+      var stored = localStorage.getItem("axiom-theme");
+      if (stored === "axiomDark") stored = "dark";
+      if (stored === "axiomLight") stored = "light";
+      var systemDark =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var defaultTheme =
+        'dark';
+
+      var theme =
+        stored ||
+        (defaultTheme === "dark"
+          ? "dark"
+          : defaultTheme === "light"
+          ? "light"
+          : systemDark
+          ? "dark"
+          : "light");
+
+      document.documentElement.setAttribute("data-theme", theme);
+    } catch (e) {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  })();
+</script>
+
+
+
+
+  </head>
+  <body class="min-h-screen bg-bg text-text antialiased">
+    <div class="flex min-h-screen flex-col">
+      <a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="/" class="site-wordmark" aria-label="SECURITY-BUFFOR home">
+      <img src="/images/logo.png" alt="" width="40" height="40">
+      <span>SECURITY-BUFFOR</span>
+    </a>
+    <div class="site-header__actions">
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        
+          <a href="/" class="nav-link">Home</a>
+        
+          <a href="/about/" class="nav-link">About</a>
+        
+          <a href="/services/" class="nav-link">Services</a>
+        
+          <a href="/projects/" class="nav-link">Projects</a>
+        
+      </nav>
+      <button type="button" class="hdr-btn hdr-btn--search" aria-label="Search (Ctrl+K)" onclick="window.MinimalSearch && window.MinimalSearch.open()">
+        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M6.8 1.8a5 5 0 1 1 0 10 5 5 0 0 1 0-10zM10.4 10.4l4 4"/></svg>
+        <span class="hdr-btn__label">Search</span><kbd>^K</kbd>
+      </button>
+      <button type="button" class="hdr-btn theme-toggle" aria-label="Toggle dark mode" data-theme-toggle>
+  <span data-theme-icon-light style="display: none">
+    <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M7 0h2v3H7zM7 13h2v3H7zM0 7h3v2H0zM13 7h3v2h-3zM5 5h6v6H5z"/></svg>
+  </span>
+  <span data-theme-icon-dark>
+    <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M6 1h5v1H8v1H7v2H6v6h1v2h1v1h3v1H6v-1H4v-1H3v-2H2V5h1V3h1V2h2z"/></svg>
+  </span>
+</button>
+
+      <button type="button" class="hdr-btn mobile-nav-toggle" aria-label="Open navigation" aria-controls="mobile-navigation" aria-expanded="false" data-mobile-nav-toggle>
+        <span class="mobile-nav-toggle__open">Menu</span><span class="mobile-nav-toggle__close">Close</span>
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-navigation" class="mobile-nav" aria-label="Mobile navigation" aria-hidden="true" data-mobile-nav>
+    <a href="/"><b>01</b>Home<i aria-hidden="true">→</i></a><a href="/about/"><b>02</b>About<i aria-hidden="true">→</i></a><a href="/services/"><b>03</b>Services<i aria-hidden="true">→</i></a><a href="/projects/"><b>04</b>Projects<i aria-hidden="true">→</i></a>
+  </nav>
+</header>
+
+
+      <main id="main" class="flex-1">
+        <div class="layout-page sv-page sv-detail">
+
+  <nav class="mb-breadcrumb" aria-label="Breadcrumb">
+    <a href="/services/">Services</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">Adversary Emulation</span>
+  </nav>
+
+  <header class="sv-dhero">
+    <div class="sv-dhero__copy">
+      <p class="mb-kicker">
+        <i class="fa-solid fa-masks-theater" aria-hidden="true"></i>
+        <span>SV-04</span> · Threat-informed testing
+      </p>
+      <h1>Adversary Emulation</h1>
+      <p class="sv-hero__lede">The techniques of the threat actors most relevant to you, replayed in a controlled way and mapped to MITRE ATT&amp;CK — so you know exactly what your defenses catch.</p>
+      <div class="mb-actions">
+        <a class="btn-primary" href="mailto:h4mr3r@securitybuffor.com?subject=Adversary&#43;Emulation&#43;inquiry">Discuss this engagement <span aria-hidden="true">→</span></a>
+        <a class="btn-ghost" href="#method">See how it works</a>
+      </div>
+    </div>
+    
+    <aside class="sv-facts" aria-labelledby="sv-facts-title">
+      <div class="sv-facts__bar"><span id="sv-facts-title">Engagement profile</span><span aria-hidden="true">SV-04</span></div>
+      <dl>
+        <div><dt>Approach</dt><dd>Threat-informed, ATT&amp;CK-mapped</dd></div><div><dt>Best for</dt><dd>SOC and detection engineering teams</dd></div><div><dt>Measures</dt><dd>Technique-level coverage</dd></div><div><dt>Readout</dt><dd>Joint replay with defenders</dd></div>
+      </dl>
+    </aside>
+    
+  </header>
+
+  <nav class="sv-toc" aria-label="On this page">
+    <a href="#overview">Overview</a>
+    <a href="#method">Method</a>
+    <a href="#scope">Scope</a>
+    <a href="#safeguards">Safeguards</a>
+    <a href="#deliverable">Deliverable</a>
+  </nav>
+
+  <section id="overview" class="sv-section sv-overview" aria-labelledby="sv-overview-title">
+    <div class="sv-overview__copy">
+      <p class="mb-kicker"><span>01</span> Overview</p>
+      <h2 id="sv-overview-title">Why this engagement</h2>
+      <div class="sv-prose"><p>Generic testing tells you that something is vulnerable. Adversary emulation answers a sharper question: <strong>if the groups that actually target organizations like yours tried their known playbook here, what would you see?</strong></p>
+<p>It is a controlled test of defensive coverage against a defined scenario — not an attempt at unrestricted compromise.</p>
+</div>
+    </div>
+    
+    <div class="sv-questions">
+      <p class="sv-questions__label">Questions it answers</p>
+      <ol>
+        <li><span aria-hidden="true">Q1</span><p>Which of the techniques used against our sector would we actually detect?</p></li><li><span aria-hidden="true">Q2</span><p>Where are the blind spots in our telemetry and alerting?</p></li><li><span aria-hidden="true">Q3</span><p>Is our detection engineering keeping pace with relevant threats?</p></li>
+      </ol>
+    </div>
+    
+  </section>
+
+  
+  <section id="method" class="sv-section sv-method" aria-labelledby="sv-method-title">
+    <div class="sv-method__head">
+      <p class="mb-kicker"><span>02</span> Method</p>
+      <h2 id="sv-method-title">How the engagement runs</h2>
+      <p>5 controlled phases. Each one ends with a concrete output you can review before the next begins.</p>
+    </div>
+    <ol class="sv-timeline">
+      
+      <li class="sv-phase">
+        <span class="sv-phase__num" aria-hidden="true">01</span>
+        <div class="sv-phase__body">
+          <h3><span class="sr-only">Phase 1: </span>Select the relevant threat</h3>
+          <p>We identify likely adversaries, target assets, and business concerns. Threat intelligence is weighed for relevance and confidence before it shapes the plan.</p>
+          <p class="sv-phase__out"><span>Output</span>Threat profile</p>
+        </div>
+      </li>
+      
+      <li class="sv-phase">
+        <span class="sv-phase__num" aria-hidden="true">02</span>
+        <div class="sv-phase__body">
+          <h3><span class="sr-only">Phase 2: </span>Build the emulation plan</h3>
+          <p>Behaviors become testable objectives mapped to MITRE ATT&amp;CK. Techniques are adapted to your environment, with safe substitutes where real actions would add risk.</p>
+          <p class="sv-phase__out"><span>Output</span>ATT&amp;CK-mapped plan</p>
+        </div>
+      </li>
+      
+      <li class="sv-phase">
+        <span class="sv-phase__num" aria-hidden="true">03</span>
+        <div class="sv-phase__body">
+          <h3><span class="sr-only">Phase 3: </span>Agree execution controls</h3>
+          <p>We set scope, timing, communication, data handling, stop conditions, and whether defenders know in advance. Each technique is authorized before it runs.</p>
+          <p class="sv-phase__out"><span>Output</span>Authorized technique list</p>
+        </div>
+      </li>
+      
+      <li class="sv-phase">
+        <span class="sv-phase__num" aria-hidden="true">04</span>
+        <div class="sv-phase__body">
+          <h3><span class="sr-only">Phase 4: </span>Execute and observe</h3>
+          <p>Techniques run in controlled stages. I record prevention, telemetry, alerts, investigation, and response, so every conclusion traces back to evidence.</p>
+          <p class="sv-phase__out"><span>Output</span>Technique-level results</p>
+        </div>
+      </li>
+      
+      <li class="sv-phase">
+        <span class="sv-phase__num" aria-hidden="true">05</span>
+        <div class="sv-phase__body">
+          <h3><span class="sr-only">Phase 5: </span>Report and replay</h3>
+          <p>Technique results, evidence, gaps, and prioritized recommendations — plus a joint session that replays key events with your defenders.</p>
+          <p class="sv-phase__out"><span>Output</span>Report and coverage map</p>
+        </div>
+      </li>
+      
+    </ol>
+  </section>
+  
+
+  
+  <section id="scope" class="sv-section" aria-labelledby="sv-scope-title">
+    <div class="sv-section__head">
+      <p class="mb-kicker"><span>03</span> Scope</p>
+      <h2 id="sv-scope-title">What can be assessed</h2>
+      <p>Coverage follows the agreed threat profile and target assets.</p>
+    </div>
+    <ul class="sv-scope">
+      <li><i class="fa-solid fa-id-card" aria-hidden="true"></i><span>Identity</span></li><li><i class="fa-solid fa-desktop" aria-hidden="true"></i><span>Endpoint</span></li><li><i class="fa-solid fa-network-wired" aria-hidden="true"></i><span>Network</span></li><li><i class="fa-solid fa-cloud" aria-hidden="true"></i><span>Cloud</span></li><li><i class="fa-solid fa-chart-line" aria-hidden="true"></i><span>Logging and telemetry</span></li><li><i class="fa-solid fa-bell" aria-hidden="true"></i><span>Alerting and triage</span></li>
+    </ul>
+  </section>
+  
+
+  
+  <section id="safeguards" class="sv-section" aria-labelledby="sv-safe-title">
+    <div class="sv-safe">
+      <div class="sv-safe__copy">
+        <p class="mb-kicker"><span>04</span> Safeguards</p>
+        <h2 id="sv-safe-title">Evidence over assumptions</h2>
+        <p>A technique counts as covered only when there is evidence to prove it. Nothing is assumed.</p>
+      </div>
+      <ul class="sv-checks sv-checks--boxed">
+        <li>Coverage marked only with prevention or detection evidence</li><li>Inconclusive results reported explicitly</li><li>Safe substitutes for high-risk techniques</li><li>Every technique authorized before execution</li><li>Agreed stop conditions and communication plan</li>
+      </ul>
+    </div>
+  </section>
+  
+
+  
+  <section id="deliverable" class="sv-section sv-section--band" aria-labelledby="deliverable-title">
+    <div class="sv-report">
+  <div class="sv-report__doc" aria-hidden="true">
+    <div class="sv-report__sheet sv-report__sheet--back"></div>
+    <div class="sv-report__sheet">
+      <div class="sv-report__head">
+        <span>SECURITY-BUFFOR</span>
+        <span>Confidential</span>
+      </div>
+      <p class="sv-report__type">Security assessment report</p>
+      <p class="sv-report__name">Adversary Emulation</p>
+      <ol class="sv-report__toc">
+        <li><b>1</b><span>Executive threat and impact summary</span><i></i></li><li><b>2</b><span>Scenario and technique coverage</span><i></i></li><li><b>3</b><span>Timestamped evidence and observations</span><i></i></li><li><b>4</b><span>Prevention and detection results</span><i></i></li><li><b>5</b><span>Prioritized defensive recommendations</span><i></i></li>
+      </ol>
+      <div class="sv-report__sev">
+        <span class="is-crit"></span><span class="is-high"></span><span class="is-med"></span><span class="is-low"></span>
+      </div>
+      <div class="sv-report__lines"><i></i><i></i><i></i></div>
+    </div>
+  </div>
+  <div class="sv-report__copy">
+    <p class="mb-kicker"><span>//</span> Primary deliverable</p>
+    <h2 id="deliverable-title">A report built to be acted on</h2>
+    <p>Every engagement ends with a detailed written report — readable by leadership, precise enough for engineers — followed by a technical readout and an optional executive debrief.</p>
+    <ul class="sv-checks">
+      <li>Executive threat and impact summary</li><li>Scenario and technique coverage</li><li>Timestamped evidence and observations</li><li>Prevention and detection results</li><li>Prioritized defensive recommendations</li>
+    </ul>
+    
+    <a class="btn-ghost" href="/files/sample_report.pdf" target="_blank" rel="noopener">View a sample report <span aria-hidden="true">↗</span></a>
+    
+  </div>
+</div>
+
+  </section>
+  
+  <section class="sv-section" aria-labelledby="sv-more-title">
+    <div class="sv-section__head sv-section__head--row">
+      <div>
+        <p class="mb-kicker"><span>//</span> More services</p>
+        <h2 id="sv-more-title">Related engagements</h2>
+      </div>
+      <a href="/services/">All services <span aria-hidden="true">→</span></a>
+    </div>
+    <ul class="sv-more">
+      
+      <li>
+        <a href="/services/red-team-operations/">
+          <span class="sv-more__top">
+            <span>SV-01</span>
+            <i class="fa-solid fa-chess-knight" aria-hidden="true"></i>
+          </span>
+          <span class="sv-more__title">Red Team Operations</span>
+          <span class="sv-more__cat">Full-scope assessment</span>
+          <span class="sv-more__go">Details <span aria-hidden="true">→</span></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/services/insider-threat-assessment/">
+          <span class="sv-more__top">
+            <span>SV-02</span>
+            <i class="fa-solid fa-user-shield" aria-hidden="true"></i>
+          </span>
+          <span class="sv-more__title">Insider Threat Assessment</span>
+          <span class="sv-more__cat">Human and access risk</span>
+          <span class="sv-more__go">Details <span aria-hidden="true">→</span></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/services/social-engineering-simulations/">
+          <span class="sv-more__top">
+            <span>SV-03</span>
+            <i class="fa-solid fa-envelope-open-text" aria-hidden="true"></i>
+          </span>
+          <span class="sv-more__title">Phishing &amp; Smishing Simulations</span>
+          <span class="sv-more__cat">Social engineering</span>
+          <span class="sv-more__go">Details <span aria-hidden="true">→</span></span>
+        </a>
+      </li>
+      
+    </ul>
+  </section>
+  
+
+  <aside class="sv-cta" aria-labelledby="sv-cta-title">
+  <div class="sv-cta__copy">
+    <p class="mb-kicker"><span>&gt;</span> Start with the objective</p>
+    <h2 id="sv-cta-title">Plan your adversary emulation</h2>
+    <p>Share the environment, the security question, and your target timeframe. We will agree boundaries, safeguards, success criteria, and deliverables before any testing begins.</p>
+  </div>
+  <div class="sv-cta__actions">
+    <a class="btn-primary" href="mailto:h4mr3r@securitybuffor.com?subject=Adversary&#43;Emulation&#43;inquiry">Request a consultation <span aria-hidden="true">→</span></a>
+    <p class="sv-cta__mail"><span>or write to</span> <a href="mailto:h4mr3r@securitybuffor.com">h4mr3r@securitybuffor.com</a></p>
+  </div>
+</aside>
+
+</div>
+
+      </main>
+
+      <footer class="mb-footer">
+  <div class="mb-footer__inner">
+    <p class="mb-footer__copy">&copy; 2026 SECURITY-BUFFOR<span> — All rights reserved.</span></p>
+    
+    <nav class="mb-footer__keys" aria-label="Social links">
+      
+      <a href="https://github.com/SECURITY-BUFFOR" target="_blank" rel="noopener noreferrer"><b>1</b><span>GitHub</span></a>
+      
+      <a href="https://www.linkedin.com/in/kgres/" target="_blank" rel="noopener noreferrer"><b>2</b><span>LinkedIn</span></a>
+      
+      <a href="mailto:h4mr3r@securitybuffor.com"><b>3</b><span>Email</span></a>
+      
+    </nav>
+    
+  </div>
+</footer>
+
+    </div>
+    <div class="search-overlay" data-search-overlay>
+  <div class="search-overlay-backdrop" data-search-close></div>
+
+  <div class="search-panel">
+    <div class="search-panel-header">
+      <div class="search-input-wrap">
+        <i class="fa-solid fa-magnifying-glass text-[0.8rem] text-muted"></i>
+        <input
+          type="search"
+          class="search-input"
+          placeholder="Search the site..."
+          autocomplete="off"
+          data-search-input
+        />
+      </div>
+      <button
+        type="button"
+        class="search-close"
+        data-search-close
+        aria-label="Close search"
+      >
+        <i class="fa-solid fa-xmark text-[0.8rem]"></i>
+      </button>
+    </div>
+
+    <div class="search-panel-body">
+      <div class="search-results" data-search-results>
+        <div class="search-empty-state">
+          <div class="search-empty-icon">
+            <i class="fa-solid fa-magnifying-glass text-[1rem]"></i>
+          </div>
+          <p class="search-empty-title">Start searching</p>
+          <p class="search-empty-subtitle">
+            Enter keywords to search projects and pages.
+          </p>
+        </div>
+      </div>
+
+      <div class="search-footer-hints">
+        <div class="search-hint-key">
+          <span>↑↓</span>
+          <span>Navigate</span>
+        </div>
+        <div class="search-hint-key">
+          <span>↵</span>
+          <span>Select</span>
+        </div>
+        <div class="search-hint-key">
+          <span>ESC</span>
+          <span>Close</span>
+        </div>
+        <div class="search-hint-key search-hint-right">
+          <span>Ctrl</span><span>K</span>
+          <span>Shortcut</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="dock" data-dock>
+  <button type="button" class="dock-top" data-dock-action="top" aria-label="Back to top">
+    <span aria-hidden="true">↑</span><span class="dock-top__label">Top</span>
+  </button>
+</div>
+
+    <script src="/js/main.js" defer></script>
+    <script src="/js/search.js" defer></script>
+    
+    
+    
+  </body>
+</html>

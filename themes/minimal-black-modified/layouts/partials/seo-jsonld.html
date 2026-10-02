@@ -62,7 +62,20 @@
     {{- $items = $items | append $collection -}}
   {{- end -}}
 
-  {{- if $page.IsPage -}}
+  {{- if and $page.IsPage (eq $page.Section "services") -}}
+    {{- $service := dict
+      "@context" "https://schema.org"
+      "@type" "Service"
+      "name" $page.Title
+      "description" $description
+      "url" $page.Permalink
+      "provider" $publisher
+    -}}
+    {{- with $page.Params.category -}}
+      {{- $service = merge $service (dict "serviceType" .) -}}
+    {{- end -}}
+    {{- $items = $items | append $service -}}
+  {{- else if $page.IsPage -}}
     {{- $article := dict
       "@context" "https://schema.org"
       "@type" "Article"

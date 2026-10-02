@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Offensive Security Services on SECURITY-BUFFOR</title>
+		<link>http://127.0.0.1:43733/services/</link>
+		<description>Recent content in Offensive Security Services on SECURITY-BUFFOR</description>
+		<generator>Hugo</generator>
+		<language>en-US</language>
+		
+		
+		
+		
+			<atom:link href="http://127.0.0.1:43733/services/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Adversary Emulation</title>
+				<link>http://127.0.0.1:43733/services/adversary-emulation/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://127.0.0.1:43733/services/adversary-emulation/</guid>
+				<description>The techniques of the threat actors most relevant to you, replayed in a controlled way and mapped to MITRE ATT&amp;amp;CK — so you know exactly what your defenses catch.</description>
+			</item>
+			<item>
+				<title>Insider Threat Assessment</title>
+				<link>http://127.0.0.1:43733/services/insider-threat-assessment/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://127.0.0.1:43733/services/insider-threat-assessment/</guid>
+				<description>A controlled look at how legitimate access could be misused — and whether your governance, controls, and response would prevent or expose it.</description>
+			</item>
+			<item>
+				<title>Phishing &amp; Smishing Simulations</title>
+				<link>http://127.0.0.1:43733/services/social-engineering-simulations/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://127.0.0.1:43733/services/social-engineering-simulations/</guid>
+				<description>Realistic email and mobile-message campaigns that measure how well people and processes recognize, report, and escalate suspicious messages.</description>
+			</item>
+			<item>
+				<title>Red Team Operations</title>
+				<link>http://127.0.0.1:43733/services/red-team-operations/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://127.0.0.1:43733/services/red-team-operations/</guid>
+				<description>A realistic, objective-led attack against the systems that matter most — run under strict guardrails, measured against your ability to prevent, detect, and respond.</description>
+			</item>
+	</channel>
+</rss>

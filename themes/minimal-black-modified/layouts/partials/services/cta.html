@@ -1,0 +1,13 @@
+{{- /* Closing call to action. Params: context (page), subject (mail subject), title, text. */ -}}
+{{- $site := .context.Site -}}
+<aside class="sv-cta" aria-labelledby="sv-cta-title">
+  <div class="sv-cta__copy">
+    <p class="mb-kicker"><span>&gt;</span> Start with the objective</p>
+    <h2 id="sv-cta-title">{{ .title | default "Scope an engagement" }}</h2>
+    <p>{{ .text | default "Share the environment, the security question, and your target timeframe. We will agree boundaries, safeguards, success criteria, and deliverables before any testing begins." }}</p>
+  </div>
+  <div class="sv-cta__actions">
+    <a class="btn-primary" href="mailto:{{ $site.Params.servicesContactEmail }}?subject={{ .subject | default "Security engagement inquiry" | urlquery }}">Request a consultation <span aria-hidden="true">→</span></a>
+    <p class="sv-cta__mail"><span>or write to</span> <a href="mailto:{{ $site.Params.servicesContactEmail }}">{{ $site.Params.servicesContactEmail }}</a></p>
+  </div>
+</aside>

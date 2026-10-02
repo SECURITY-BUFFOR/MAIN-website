@@ -1,0 +1,150 @@
+{{ define "main" }}
+{{- $slug := .File.ContentBaseName -}}
+{{- $services := hugo.Data.services | default slice -}}
+{{- $mailto := printf "mailto:%s?subject=%s" .Site.Params.servicesContactEmail (printf "%s inquiry" .Title | urlquery) -}}
+<div class="layout-page sv-page sv-detail">
+
+  <nav class="mb-breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ "services/" | relURL }}">Services</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">{{ .Title }}</span>
+  </nav>
+
+  <header class="sv-dhero">
+    <div class="sv-dhero__copy">
+      <p class="mb-kicker">
+        {{ with .Params.icon }}<i class="{{ . }}" aria-hidden="true"></i>{{ end }}
+        <span>{{ .Params.serviceCode }}</span> · {{ .Params.category }}
+      </p>
+      <h1>{{ .Title }}</h1>
+      <p class="sv-hero__lede">{{ .Params.summary | default .Description }}</p>
+      <div class="mb-actions">
+        <a class="btn-primary" href="{{ $mailto }}">Discuss this engagement <span aria-hidden="true">→</span></a>
+        <a class="btn-ghost" href="#method">See how it works</a>
+      </div>
+    </div>
+    {{ with .Params.facts }}
+    <aside class="sv-facts" aria-labelledby="sv-facts-title">
+      <div class="sv-facts__bar"><span id="sv-facts-title">Engagement profile</span><span aria-hidden="true">{{ $.Params.serviceCode }}</span></div>
+      <dl>
+        {{ range . }}<div><dt>{{ .label }}</dt><dd>{{ .value }}</dd></div>{{ end }}
+      </dl>
+    </aside>
+    {{ end }}
+  </header>
+
+  <nav class="sv-toc" aria-label="On this page">
+    <a href="#overview">Overview</a>
+    {{ with .Params.phases }}<a href="#method">Method</a>{{ end }}
+    {{ with .Params.assessed }}<a href="#scope">Scope</a>{{ end }}
+    {{ with .Params.safeguards }}<a href="#safeguards">Safeguards</a>{{ end }}
+    {{ with .Params.report }}<a href="#deliverable">Deliverable</a>{{ end }}
+  </nav>
+
+  <section id="overview" class="sv-section sv-overview" aria-labelledby="sv-overview-title">
+    <div class="sv-overview__copy">
+      <p class="mb-kicker"><span>01</span> Overview</p>
+      <h2 id="sv-overview-title">Why this engagement</h2>
+      <div class="sv-prose">{{ .Content }}</div>
+    </div>
+    {{ with .Params.questions }}
+    <div class="sv-questions">
+      <p class="sv-questions__label">Questions it answers</p>
+      <ol>
+        {{ range $i, $q := . }}<li><span aria-hidden="true">Q{{ add $i 1 }}</span><p>{{ $q }}</p></li>{{ end }}
+      </ol>
+    </div>
+    {{ end }}
+  </section>
+
+  {{ with .Params.phases }}
+  <section id="method" class="sv-section sv-method" aria-labelledby="sv-method-title">
+    <div class="sv-method__head">
+      <p class="mb-kicker"><span>02</span> Method</p>
+      <h2 id="sv-method-title">How the engagement runs</h2>
+      <p>{{ len . }} controlled phases. Each one ends with a concrete output you can review before the next begins.</p>
+    </div>
+    <ol class="sv-timeline">
+      {{ range $i, $p := . }}
+      <li class="sv-phase">
+        <span class="sv-phase__num" aria-hidden="true">{{ printf "%02d" (add $i 1) }}</span>
+        <div class="sv-phase__body">
+          <h3><span class="sr-only">Phase {{ add $i 1 }}: </span>{{ $p.title }}</h3>
+          <p>{{ $p.text }}</p>
+          {{ with $p.output }}<p class="sv-phase__out"><span>Output</span>{{ . }}</p>{{ end }}
+        </div>
+      </li>
+      {{ end }}
+    </ol>
+  </section>
+  {{ end }}
+
+  {{ with .Params.assessed }}
+  <section id="scope" class="sv-section" aria-labelledby="sv-scope-title">
+    <div class="sv-section__head">
+      <p class="mb-kicker"><span>03</span> Scope</p>
+      <h2 id="sv-scope-title">What can be assessed</h2>
+      {{ with $.Params.assessedNote }}<p>{{ . }}</p>{{ end }}
+    </div>
+    <ul class="sv-scope">
+      {{ range . }}<li><i class="{{ .icon | default "fa-solid fa-square" }}" aria-hidden="true"></i><span>{{ .label }}</span></li>{{ end }}
+    </ul>
+  </section>
+  {{ end }}
+
+  {{ with .Params.safeguards }}
+  <section id="safeguards" class="sv-section" aria-labelledby="sv-safe-title">
+    <div class="sv-safe">
+      <div class="sv-safe__copy">
+        <p class="mb-kicker"><span>04</span> Safeguards</p>
+        <h2 id="sv-safe-title">{{ .title }}</h2>
+        <p>{{ .text }}</p>
+      </div>
+      <ul class="sv-checks sv-checks--boxed">
+        {{ range .points }}<li>{{ . }}</li>{{ end }}
+      </ul>
+    </div>
+  </section>
+  {{ end }}
+
+  {{ with .Params.report }}
+  <section id="deliverable" class="sv-section sv-section--band" aria-labelledby="deliverable-title">
+    {{ partial "services/report.html" (dict "context" $ "title" $.Title "items" .) }}
+  </section>
+  {{ end }}
+
+  {{- $others := where $services "slug" "ne" $slug -}}
+  {{ with $others }}
+  <section class="sv-section" aria-labelledby="sv-more-title">
+    <div class="sv-section__head sv-section__head--row">
+      <div>
+        <p class="mb-kicker"><span>//</span> More services</p>
+        <h2 id="sv-more-title">Related engagements</h2>
+      </div>
+      <a href="{{ "services/" | relURL }}">All services <span aria-hidden="true">→</span></a>
+    </div>
+    <ul class="sv-more">
+      {{ range . }}
+      <li>
+        <a href="{{ printf "services/%s/" .slug | relURL }}">
+          <span class="sv-more__top">
+            <span>SV-{{ .code }}</span>
+            {{ with .icon }}<i class="{{ . }}" aria-hidden="true"></i>{{ end }}
+          </span>
+          <span class="sv-more__title">{{ .title }}</span>
+          <span class="sv-more__cat">{{ .category }}</span>
+          <span class="sv-more__go">Details <span aria-hidden="true">→</span></span>
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+
+  {{ partial "services/cta.html" (dict
+    "context" .
+    "subject" (printf "%s inquiry" .Title)
+    "title" (printf "Plan your %s" (lower .Title))
+  ) }}
+</div>
+{{ end }}

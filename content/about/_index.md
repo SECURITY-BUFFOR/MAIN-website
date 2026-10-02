@@ -1,19 +1,21 @@
 +++
-title = "About Me"
-subtitle = "Penetration Tester | Malware Developer | Cyber Security Specialist"
+title = "About Krzysztof Greś"
+subtitle = "Red Team Specialist & Malware Developer"
 layout = "about-alternative"
-description = "Krzysztof Greś (h4mr3r) — red team specialist and malware developer building offensive security tooling, C2 frameworks, and adversary simulation."
+description = "Krzysztof Greś (h4mr3r) — red team specialist and malware developer with 5+ years of enterprise offensive security consulting at KPMG Poland and Netia S.A."
 +++
 
-Hi, I'm **Krzysztof Greś (h4mr3r)**. I'm a  Red Team Specialist and a malware developer, passionate about building advanced offensive security tools and simulating sophisticated adversary attacks.
+I'm **Krzysztof Greś (h4mr3r)**, a red team specialist and malware developer based in Poland. For more than five years I have worked in enterprise offensive security consulting — first at KPMG Poland, now as a Senior Cyber Security Consultant at Netia S.A. — running red team operations, penetration tests, and adversary simulations.
+
+Through Security Buffor I offer that work as [authorized engagements]({{< relref "/services" >}}): realistic attacks, run under strict rules of engagement, that show where defenses hold, where they fail, and what to fix first.
 
 ## What I Do
 
 I work across the offensive security spectrum with expertise in:
 
-- **Red Teaming** — Simulating advanced persistent threats, Active Directory & Azure exploitation, and physical/logical network breaches.
-- **Penetration Testing** — Comprehensive internal and external infrastructure assessments to identify and chain critical vulnerabilities.
-- **Malware Development** — Crafting evasive payloads, custom Command and Control (C2) frameworks, and low-level system subversion techniques.
+- **Red Teaming** — objective-led operations that emulate advanced persistent threats across Active Directory, Azure, and physical and network breach scenarios.
+- **Penetration Testing** — internal and external infrastructure assessments that find and chain critical vulnerabilities.
+- **Malware Development** — evasive payloads, custom command-and-control (C2) tooling, and low-level tradecraft for authorized operations.
 
 ## Current Projects
 
@@ -27,7 +29,7 @@ Right now I'm focused on:
 ---
 
 {{< experience-group
-  company="Netia S.A"
+  company="Netia S.A."
   location="Poland"
   period="Oct 2025 - PRESENT"
   titles="Senior Cyber Security Consultant"
@@ -49,17 +51,5 @@ Right now I'm focused on:
 ---
 
 ## Certifications
-
-| Issuer | Certification Name |
-| :--- | :--- |
-| **Altered Security** | Certified Red Team Professional (CRTP) |
-| **HackTheBox** | Certified Penetration Testing Specialist (CPTS) |
-| **Zero-Point Security** | Certified Red Team Operator (CRTO) |
-| **Zero-Point Security** | Certified Red Team Lead (CRTL) |
-| **Cyberwarfare Labs** | Azure Red Team Specialist (AZRTS) |
-| **Cyberwarfare Labs** | Active Directory Red Team Specialist (AD-RTS) |
-| **Cyberwarfare Labs** | Certified Red Team Analyst (CRTA) |
-
-
 
 {{< cert-gallery images="images/certs/crt_CRTP.webp,images/certs/crt_CPTS.webp,images/certs/crt_CRTO.webp,images/certs/crt_AZRTS.webp,images/certs/crt_AD-RTS.webp,images/certs/crt_CRTA.webp,images/certs/crt_CRTL.webp" issuers="Altered Security,HackTheBox,Zero-Point Security,Cyberwarfare Labs,Cyberwarfare Labs,Cyberwarfare Labs,Zero-Point Security" names="Certified Red Team Professional (CRTP),Certified Penetration Testing Specialist (CPTS),Certified Red Team Operator (CRTO),Azure Red Team Specialist (AZRTS),Active Directory Red Team Specialist (AD-RTS),Certified Red Team Analyst (CRTA),Certified Red Team Lead (CRTL)" >}}

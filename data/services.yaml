@@ -1,0 +1,54 @@
+- code: "01"
+  slug: red-team-operations
+  icon: fa-solid fa-chess-knight
+  question: "Could a determined attacker reach our crown jewels — and would we notice?"
+  title: Red Team Operations
+  category: Full-scope assessment
+  description: Realistic, objective-led operations that test whether people, processes, and controls can prevent, detect, and contain a determined attacker.
+  scope:
+    - External and internal attack paths
+    - Identity, endpoint, and cloud objectives
+    - Detection and response validation
+  outcome: Detailed red team report with an executive summary, attack narrative, evidence, risk-ranked findings, and remediation roadmap
+  featured: true
+
+- code: "02"
+  slug: insider-threat-assessment
+  icon: fa-solid fa-user-shield
+  question: "What could someone with trusted access do — and would we catch it?"
+  title: Insider Threat Assessment
+  category: Human and access risk
+  description: A controlled review of how trusted access, excessive privilege, and process gaps could enable data theft, fraud, sabotage, or unauthorized disclosure.
+  scope:
+    - Privilege and trust-path analysis
+    - Data access and exfiltration controls
+    - Joiner, mover, and leaver scenarios
+  outcome: Detailed insider threat report with abuse cases, supporting evidence, control gaps, and prioritized safeguards
+  featured: true
+
+- code: "03"
+  slug: social-engineering-simulations
+  icon: fa-solid fa-envelope-open-text
+  question: "Do our people report suspicious messages, and does anyone act on it?"
+  title: Phishing & Smishing Simulations
+  category: Social engineering
+  description: Consent-based email and mobile-message campaigns that measure reporting behavior and defensive response without shaming participants.
+  scope:
+    - Phishing, spear-phishing, and smishing
+    - Safe landing pages and campaign telemetry
+    - Help-desk and escalation-path testing
+  outcome: Detailed simulation report with campaign metrics, response analysis, observations, and a targeted improvement plan
+  featured: true
+
+- code: "04"
+  slug: adversary-emulation
+  icon: fa-solid fa-masks-theater
+  question: "Which techniques used against our sector would we actually detect?"
+  title: Adversary Emulation
+  category: Threat-informed testing
+  description: Emulation of relevant threat-actor tactics and techniques, mapped to your environment and crown-jewel assets.
+  scope:
+    - Threat-profile development
+    - MITRE ATT&CK-aligned scenarios
+    - Assumed-breach exercises
+  outcome: Detailed adversary emulation report with technique coverage, evidence, detection gaps, and prioritized recommendations

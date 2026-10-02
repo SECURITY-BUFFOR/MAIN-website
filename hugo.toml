@@ -17,20 +17,18 @@ enableRobotsTXT = true
 
 [params]
   brand = "SECURITY-BUFFOR"
-  description = "Practical pentest notes, malware analysis, threat research and security tooling for offensive and defensive security work."
+  description = "Independent red team operations, adversary emulation, insider threat assessments, and phishing simulations — authorized, evidence-led offensive security from Poland."
   author = "SECURITY-BUFFOR"
   defaultImage = "images/securitybuffor-social.png"
   keywords = [
-    "pentest",
-    "penetration testing",
-    "malware analysis",
-    "threat research",
     "red team",
-    "blue team",
-    "incident response",
-    "vulnerability research",
-    "security tooling",
-    "cybersecurity documentation"
+    "red team operations",
+    "penetration testing",
+    "adversary emulation",
+    "insider threat assessment",
+    "phishing simulation",
+    "offensive security",
+    "Poland"
   ]
 
   # Favicon - Place your favicon files in /static/ directory
@@ -38,16 +36,22 @@ enableRobotsTXT = true
   favicon = "favicon.ico"
   appleTouchIcon = "icons/apple-touch-icon.png"
 
-  [params.seo]
-    twitterSite = ""
-    organizationName = "Security Buffor"
-    organizationLogo = "images/logo.png"
-
   # Logo (optional)
   logo = "images/logo.png"
 
   # Project and blog intro text
-  projectsIntro = "A focused catalog of offensive-security software. Each entry is a concise overview and an external project link—documentation lives with the tool when available."
+  projectsIntro = "Tooling built for real engagements — reporting, campaign operations, and operator workflow. Private tools are available on request."
+
+  # Security services
+  servicesIntro = "Outcome-led offensive security engagements built around realistic attack paths, controlled execution, and practical remediation. Every assessment is scoped and authorized before testing begins."
+  servicesContactEmail = "h4mr3r@securitybuffor.com"
+  # Example deliverable linked from the services pages (leave empty to hide).
+  servicesSampleReport = "files/sample_report.pdf"
+
+  [params.seo]
+    twitterSite = ""
+    organizationName = "Security Buffor"
+    organizationLogo = "images/logo.png"
 
   # Web App Manifest Configuration (PWA support)
   [params.manifest]
@@ -89,161 +93,99 @@ enableRobotsTXT = true
 
   # Home Page Configuration
   [params.home]
-    sections = ["hero", "projects"]
-    showNowSection = true
-    showFeaturedProjects = true
-    showLatestPosts = false
-    featuredProjectsLimit = 3
+    sections = ["hero", "services", "certifications", "projects"]
+    servicesTitle = "Offensive security services"
+    servicesSubtitle = "Authorized engagements, realistic adversaries, useful outcomes."
+    certificationsTitle = "Certifications"
     projectsTitle = "Operator toolkit"
-    projectsSubtitle = ""
-    blogTitle = "New Posts"
-    blogSubtitle = ""
-    techMarqueeLabel = "Experienced In"
 
-    # Technology Stack Display
-    [[params.home.tech]]
-      label = "Python"
-      icon = "devicon-python-plain"
-
-    [[params.home.tech]]
-      label = "Java"
-      icon = "devicon-java-plain"
-
-    [[params.home.tech]]
-      label = "Spring"
-      icon = "devicon-spring-plain"  
-
-    [[params.home.tech]]
-      label = "Vaadin"
-      icon = "devicon-vaadin-plain"    
-
-    [[params.home.tech]]
-      label = "Debian"
-      icon = "devicon-debian-plain"
-
-    [[params.home.tech]]
-      label = "GitHub"
-      icon = "devicon-github-original"
-
-    [[params.home.tech]]
-      label = "Docker"
-      icon = "devicon-docker-plain"
-
-    [[params.home.techReverse]]
-      label = "PostgreSQL"
-      icon = "devicon-postgresql-plain"
-
-    [[params.home.techReverse]]
-      label = "MongoDB"
-      icon = "devicon-mongodb-plain"
-
-    [[params.home.techReverse]]
-      label = "Git"
-      icon = "devicon-git-plain"
-
-    [[params.home.techReverse]]
-      label = "Hugo"
-      icon = "devicon-hugo-plain"  
-
-    [[params.home.techReverse]]
-      label = "Jenkins"
-      icon = "devicon-jenkins-plain"   
-
-    [[params.home.techReverse]]
-      label = "JetBrains"
-      icon = "devicon-jetbrains-plain" 
-
-    [[params.home.techReverse]]
-      label = "Json"
-      icon = "devicon-json-plain" 
-
-    [[params.home.techReverse]]
-      label = "Linux"
-      icon = "devicon-linux-plain"          
-
-    [[params.home.techReverse]]
-      label = "Liquibase"
-      icon = "devicon-liquibase-plain" 
-
-    [[params.home.techReverse]]
-      label = "Markdown"
-      icon = "devicon-markdown-original"  
-
-    [[params.home.techReverse]]
-      label = "YAML"
-      icon = "devicon-yaml-plain"  
-
-    [[params.home.techReverse]]
-      label = "Wordpress"
-      icon = "devicon-wordpress-plain"
-
-    [[params.home.techReverse]]
-      label = "WooCommerce"
-      icon = "devicon-woocommerce-plain"            
-
-    [[params.home.techReverse]]
-      label = "Traefik"
-      icon = "devicon-traefikproxy-plain" 
-
-    [[params.home.techReverse]]
-      label = "pfSense"
-      icon = "devicon-pfsense-plain"       
-
-  # About Page Alternative Layout Configuration - Optional
+  # About Page Alternative Layout Configuration
   [params.about.alt]
-    # Stats displayed in the profile card sidebar
-  
-
-    # Skills/Tech Stack badges with icons
-    [[params.about.alt.skills]]
-      label = "C++"
-      icon = "devicon-cplusplus-plain"
+    skillsTitle = "Core skills"
 
     [[params.about.alt.skills]]
-      label = "C"
-      icon = "devicon-c-plain"
-    
+      label = "Active Directory"
+      icon = "fa-solid fa-sitemap"
+
+    [[params.about.alt.skills]]
+      label = "Azure & Entra ID"
+      icon = "fa-brands fa-microsoft"
+
+    [[params.about.alt.skills]]
+      label = "C2 operations"
+      icon = "fa-solid fa-tower-broadcast"
+
+    [[params.about.alt.skills]]
+      label = "Malware development"
+      icon = "fa-solid fa-bug"
+
+    [[params.about.alt.skills]]
+      label = "Defense evasion"
+      icon = "fa-solid fa-user-secret"
+
+    [[params.about.alt.skills]]
+      label = "Social engineering"
+      icon = "fa-solid fa-envelope-open-text"
+
+    [[params.about.alt.skills]]
+      label = "C / C++"
+      icon = "fa-solid fa-microchip"
+
     [[params.about.alt.skills]]
       label = "C#"
-      icon = "devicon-csharp-plain"
+      icon = "fa-solid fa-code"
 
     [[params.about.alt.skills]]
       label = "Python"
-      icon = "devicon-python-plain"
+      icon = "fa-brands fa-python"
 
     [[params.about.alt.skills]]
       label = "Docker"
-      icon = "devicon-docker-plain"
-
+      icon = "fa-brands fa-docker"
 
   # Hero Section Configuration
   [params.hero]
-    badge = "Offensive Security Engineering"
-    title = "Security tooling built for operators."
-    role = "Red Team Specialist and Malware Developer"
-    summary = "Practical software for authorized security operations."
+    badge = "Independent offensive security"
+    title = "Think like an attacker."
+    titleAccent = "Test like one."
+    summary = "Red team operations, adversary emulation, and social-engineering assessments — run by a certified operator with enterprise consulting experience, under strict rules of engagement."
+    role = "Red Team Specialist & Malware Developer"
     avatar = "images/avatar.png"
     location = "Poland"
-    focus = "Currently focused on offensive-security tooling and operator experience."
-    available = true
-    availableLabel = "Available for work"
-
-    nowLabel = "Current focus"
-    nowIntro = "Building the Security Buffor toolkit."
-    now = ["Reporting workflows", "Adversary simulation", "Operational infrastructure"]
 
     [params.hero.primary]
-      label = "View Projects"
-      href = "/projects/"
+      label = "View services"
+      href = "/services/"
 
     [params.hero.secondary]
-      label = "About"
-      href = "/about/"
-      
+      label = "Scope an engagement"
+      href = "mailto:h4mr3r@securitybuffor.com?subject=Security%20engagement%20inquiry"
+
+    # Terminal-style credentials panel next to the hero copy.
+    [[params.hero.credentials]]
+      label = "Netia S.A."
+      value = "2025 – now"
+
+    [[params.hero.credentials]]
+      label = "KPMG Poland"
+      value = "2021 – 2025"
+
+    [[params.hero.credentials]]
+      label = "Certifications"
+      value = "7 red team"
+
+    [[params.hero.credentials]]
+      label = "Focus"
+      value = "AD · Azure · C2"
+
+    [[params.hero.credentials]]
+      label = "Status"
+      value = "Available"
+
   # Icon Libraries
   [params.icons]
     useFontAwesome = true
-    useDevicon = true
+    useDevicon = false
 
   # Social Links
   [[params.social]]
@@ -304,9 +246,17 @@ enableRobotsTXT = true
       icon = "fa-solid fa-user"
 
   [[menu.main]]
+    name = "Services"
+    pageRef = "services"
+    weight = 3
+    identifier = "services"
+    [menu.main.params]
+      icon = "fa-solid fa-crosshairs"
+
+  [[menu.main]]
     name = "Projects"
     pageRef = "projects"
-    weight = 3
+    weight = 4
     identifier = "projects"
     [menu.main.params]
       icon = "fa-regular fa-folder-open"

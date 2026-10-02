@@ -10,6 +10,10 @@
   </div>
   <div class="mb-card__foot">
     <span class="mb-status">{{ .status }}</span>
+    {{- if eq .access "request" }}
+    <a href="mailto:{{ site.Params.servicesContactEmail }}?subject={{ printf "Access request: %s" .name | urlquery }}" aria-label="Request access to {{ .name }}">Request access <span aria-hidden="true">→</span></a>
+    {{- else }}
     <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="Open {{ .name }} project link">Open <span aria-hidden="true">↗</span></a>
+    {{- end }}
   </div>
 </article>

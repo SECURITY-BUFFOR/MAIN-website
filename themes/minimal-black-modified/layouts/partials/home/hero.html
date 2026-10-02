@@ -1,13 +1,13 @@
 {{- $hero := .Site.Params.hero -}}
-{{- $projects := hugo.Data.projects | default slice -}}
+{{- $certs := hugo.Data.certifications | default slice -}}
 <div class="mb-hero">
   <div class="mb-hero__copy">
     {{ with $hero.badge }}<p class="mb-kicker">{{ . }}</p>{{ end }}
-    <h1>Security tooling.<br><span>Built for operators.</span><i class="mb-cursor" aria-hidden="true"></i></h1>
-    <p class="mb-hero__summary">Independent offensive-security engineering focused on practical tooling, reliable workflows, and clear operator experience.</p>
+    <h1>{{ $hero.title }}<br><span>{{ $hero.titleAccent }}</span><i class="mb-cursor" aria-hidden="true"></i></h1>
+    {{ with $hero.summary }}<p class="mb-hero__summary">{{ . }}</p>{{ end }}
     <div class="mb-actions">
-      <a href="{{ "projects/" | relURL }}" class="btn-primary">Explore projects <span aria-hidden="true">→</span></a>
-      <a href="{{ "about/" | relURL }}" class="btn-ghost">About the author</a>
+      {{ with $hero.primary }}<a href="{{ .href | relURL }}" class="btn-primary">{{ .label }} <span aria-hidden="true">→</span></a>{{ end }}
+      {{ with $hero.secondary }}<a href="{{ if hasPrefix .href "mailto:" }}{{ .href }}{{ else }}{{ .href | relURL }}{{ end }}" class="btn-ghost">{{ .label }}</a>{{ end }}
     </div>
     <dl class="mb-hero__meta">
       {{ with $hero.role }}<div><dt>Role</dt><dd>{{ . }}</dd></div>{{ end }}
@@ -15,25 +15,22 @@
     </dl>
   </div>
 
-  <aside class="mb-window mb-panel" aria-labelledby="hero-panel-title">
-    <div class="mb-window__bar"><span id="hero-panel-title">Toolkit</span><span aria-hidden="true">[■]</span></div>
-    <ul class="mb-panel__projects">
-      {{ range $projects }}
-      <li>
-        <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">
-          <img src="{{ .logo | relURL }}" alt="" width="40" height="40">
-          <span class="mb-panel__name"><b>{{ .name }}</b><small>{{ .category }}</small></span>
-          <em>{{ .status }}</em>
-          <i aria-hidden="true">↗</i>
-        </a>
-      </li>
+  <aside class="mb-window mb-window--terminal mb-panel mb-panel--operator" aria-labelledby="hero-panel-title">
+    <div class="mb-window__bar"><span id="hero-panel-title">operator.dat</span><span aria-hidden="true">[■]</span></div>
+    <div class="mb-window__body">
+      <p class="mb-term__cmd"><i>$</i> whoami</p>
+      <p class="mb-panel__who"><b>Krzysztof Greś</b> (h4mr3r)<br><small>{{ $hero.role }}</small></p>
+      {{ with $hero.credentials }}
+      <ul class="mb-term__list">
+        {{ range . }}<li><b>{{ .label }}</b><span class="mb-term__leader" aria-hidden="true"></span><em>{{ .value }}</em></li>{{ end }}
+      </ul>
       {{ end }}
-    </ul>
-    {{ with $hero.now }}
-    <div class="mb-panel__focus">
-      <p>{{ $hero.nowLabel | default "Current focus" }}</p>
-      <ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+      {{ with $certs }}
+      <ul class="mb-panel__certs" aria-label="Certifications">
+        {{ range . }}<li title="{{ .name }} — {{ .issuer }}">{{ .code }}</li>{{ end }}
+      </ul>
+      {{ end }}
+      <p class="mb-term__ok"><a href="{{ "about/" | relURL }}">[ read full profile → ]</a><i class="mb-cursor" aria-hidden="true"></i></p>
     </div>
-    {{ end }}
   </aside>
 </div>

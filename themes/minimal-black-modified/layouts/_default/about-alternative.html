@@ -8,7 +8,13 @@
           <div class="about-alt-profile-card">
             {{ with .Site.Params.hero.avatar }}
               <div class="about-alt-avatar">
-                <img src="{{ . | relURL }}" alt="Portrait of Krzysztof Greś" width="240" height="240" />
+                {{- with resources.Get . }}
+                  {{- /* Rendered at 2x its 240px display size; WebP keeps it small. */}}
+                  {{- $img := .Process "fill 480x480 Center webp q82" }}
+                  <img src="{{ $img.RelPermalink }}" alt="Portrait of Krzysztof Greś" width="240" height="240" />
+                {{- else }}
+                  <img src="{{ . | relURL }}" alt="Portrait of Krzysztof Greś" width="240" height="240" />
+                {{- end }}
 
               </div>
             {{ else }}
@@ -57,6 +63,10 @@
                   </a>
                 {{ end }}
               </div>
+            {{ end }}
+
+            {{ with .Site.GetPage "/services" }}
+              <a class="btn-primary about-alt-cta" href="{{ .RelPermalink }}">Work with me <span aria-hidden="true">→</span></a>
             {{ end }}
           </div>
         </aside>
@@ -137,11 +147,11 @@
           <!-- Skills Badge Cloud -->
           {{ with $.Site.Params.about.alt.skills }}
             <div class="about-alt-section">
-              <h2 class="about-alt-section-title">Tech Stack</h2>
+              <h2 class="about-alt-section-title">{{ $.Site.Params.about.alt.skillsTitle | default "Tech Stack" }}</h2>
               <div class="about-alt-skills">
                 {{ range . }}
                   <span class="about-alt-skill">
-                    {{ with .icon }}<i class="{{ . }}"></i>{{ end }}
+                    {{ with .icon }}<i class="{{ . }}" aria-hidden="true"></i>{{ end }}
                     {{ .label }}
                   </span>
                 {{ end }}

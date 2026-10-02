@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://127.0.0.1:43733/</loc>
+  </url><url>
+    <loc>http://127.0.0.1:43733/about/</loc>
+  </url><url>
+    <loc>http://127.0.0.1:43733/services/adversary-emulation/</loc>
+  </url><url>
+    <loc>http://127.0.0.1:43733/categories/</loc>
+  </url><url>
+    <loc>http://127.0.0.1:43733/services/insider-threat-assessment/</loc>
+  </url><url>
+    <loc>http://127.0.0.1:43733/services/</loc>
+  </url><url>
+    <loc>http://127.0.0.1:43733/services/social-engineering-simulations/</loc>
+  </url><url>
+    <loc>http://127.0.0.1:43733/projects/</loc>
+  </url><url>
+    <loc>http://127.0.0.1:43733/services/red-team-operations/</loc>
+  </url><url>
+    <loc>http://127.0.0.1:43733/tags/</loc>
+  </url>
+</urlset>

@@ -1,0 +1,34 @@
+{{- /* Deliverable showcase: a stylised report "document" listing what the report contains.
+       Params: items (slice), title (string), context (page, for site params). */ -}}
+{{- $site := .context.Site -}}
+<div class="sv-report">
+  <div class="sv-report__doc" aria-hidden="true">
+    <div class="sv-report__sheet sv-report__sheet--back"></div>
+    <div class="sv-report__sheet">
+      <div class="sv-report__head">
+        <span>{{ $site.Params.brand | default $site.Title }}</span>
+        <span>Confidential</span>
+      </div>
+      <p class="sv-report__type">Security assessment report</p>
+      <p class="sv-report__name">{{ .title }}</p>
+      <ol class="sv-report__toc">
+        {{ range $i, $item := .items }}<li><b>{{ add $i 1 }}</b><span>{{ $item }}</span><i></i></li>{{ end }}
+      </ol>
+      <div class="sv-report__sev">
+        <span class="is-crit"></span><span class="is-high"></span><span class="is-med"></span><span class="is-low"></span>
+      </div>
+      <div class="sv-report__lines"><i></i><i></i><i></i></div>
+    </div>
+  </div>
+  <div class="sv-report__copy">
+    <p class="mb-kicker"><span>//</span> Primary deliverable</p>
+    <h2 id="deliverable-title">A report built to be acted on</h2>
+    <p>Every engagement ends with a detailed written report — readable by leadership, precise enough for engineers — followed by a technical readout and an optional executive debrief.</p>
+    <ul class="sv-checks">
+      {{ range .items }}<li>{{ . }}</li>{{ end }}
+    </ul>
+    {{ with $site.Params.servicesSampleReport }}
+    <a class="btn-ghost" href="{{ . | relURL }}" target="_blank" rel="noopener">View a sample report <span aria-hidden="true">↗</span></a>
+    {{ end }}
+  </div>
+</div>

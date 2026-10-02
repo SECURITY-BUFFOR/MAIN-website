@@ -1,0 +1,484 @@
+<!DOCTYPE html><html lang="en"
+  data-cb-collapse-enabled=""
+  data-cb-collapse-default=""
+  data-cb-collapse-lines=""
+  data-cb-collapse-auto-height=""
+  data-cb-collapse-collapsed-height="">
+  <head>
+	<meta name="generator" content="Hugo 0.165.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=43733&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>SECURITY-BUFFOR | Red Team &amp; Offensive Security Services</title>
+
+<meta name="description" content="Independent red team operations, adversary emulation, insider threat assessments, and phishing simulations — authorized, evidence-led offensive security from Poland." />
+<meta name="keywords" content="red team, red team operations, penetration testing, adversary emulation, insider threat assessment, phishing simulation, offensive security, Poland" />
+<meta name="author" content="SECURITY-BUFFOR" />
+<link rel="canonical" href="http://127.0.0.1:43733/" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+
+<meta property="og:site_name" content="SECURITY-BUFFOR" />
+<meta property="og:title" content="SECURITY-BUFFOR" />
+<meta property="og:description" content="Independent red team operations, adversary emulation, insider threat assessments, and phishing simulations — authorized, evidence-led offensive security from Poland." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://127.0.0.1:43733/" />
+<meta property="og:image" content="http://127.0.0.1:43733/images/securitybuffor-social.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Security Buffor offensive security services" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="SECURITY-BUFFOR" />
+<meta name="twitter:description" content="Independent red team operations, adversary emulation, insider threat assessments, and phishing simulations — authorized, evidence-led offensive security from Poland." />
+<meta name="twitter:image" content="http://127.0.0.1:43733/images/securitybuffor-social.png" />
+<meta name="twitter:image:alt" content="Security Buffor offensive security services" />
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","description":"Independent red team operations, adversary emulation, insider threat assessments, and phishing simulations — authorized, evidence-led offensive security from Poland.","image":"http://127.0.0.1:43733/images/securitybuffor-social.png","inLanguage":"en","keywords":"red team, red team operations, penetration testing, adversary emulation, insider threat assessment, phishing simulation, offensive security, Poland","name":"SECURITY-BUFFOR","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://127.0.0.1:43733/images/logo.png"},"name":"Security Buffor","url":"http://127.0.0.1:43733/"},"url":"http://127.0.0.1:43733/"}</script>
+
+
+
+
+
+
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+
+
+
+  <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png" />
+
+
+
+
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+
+
+
+
+  
+    
+  
+    
+  
+    
+  
+    
+      <link rel="manifest" href="http://127.0.0.1:43733/manifest.webmanifest" />
+    
+  
+
+
+<meta name="theme-color" content="#0b0b0b" />
+
+<link rel="preload" href="/vendor/jetbrains-mono/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/vendor/jetbrains-mono/jetbrains-mono.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/monoblood.css">
+
+
+
+  <link
+    rel="preload"
+    as="style"
+    href="/vendor/fontawesome/css/all.min.css"
+    onload="this.onload=null;this.rel='stylesheet'"
+  >
+  <noscript><link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css"></noscript>
+
+
+
+
+
+
+
+
+<script>
+  (function () {
+    try {
+      var stored = localStorage.getItem("axiom-theme");
+      if (stored === "axiomDark") stored = "dark";
+      if (stored === "axiomLight") stored = "light";
+      var systemDark =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var defaultTheme =
+        'dark';
+
+      var theme =
+        stored ||
+        (defaultTheme === "dark"
+          ? "dark"
+          : defaultTheme === "light"
+          ? "light"
+          : systemDark
+          ? "dark"
+          : "light");
+
+      document.documentElement.setAttribute("data-theme", theme);
+    } catch (e) {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  })();
+</script>
+
+
+
+
+  </head>
+  <body class="min-h-screen bg-bg text-text antialiased">
+    <div class="flex min-h-screen flex-col">
+      <a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="/" class="site-wordmark" aria-label="SECURITY-BUFFOR home">
+      <img src="/images/logo.png" alt="" width="40" height="40">
+      <span>SECURITY-BUFFOR</span>
+    </a>
+    <div class="site-header__actions">
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        
+          <a href="/" class="nav-link is-active" aria-current="page">Home</a>
+        
+          <a href="/about/" class="nav-link">About</a>
+        
+          <a href="/services/" class="nav-link">Services</a>
+        
+          <a href="/projects/" class="nav-link">Projects</a>
+        
+      </nav>
+      <button type="button" class="hdr-btn hdr-btn--search" aria-label="Search (Ctrl+K)" onclick="window.MinimalSearch && window.MinimalSearch.open()">
+        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M6.8 1.8a5 5 0 1 1 0 10 5 5 0 0 1 0-10zM10.4 10.4l4 4"/></svg>
+        <span class="hdr-btn__label">Search</span><kbd>^K</kbd>
+      </button>
+      <button type="button" class="hdr-btn theme-toggle" aria-label="Toggle dark mode" data-theme-toggle>
+  <span data-theme-icon-light style="display: none">
+    <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M7 0h2v3H7zM7 13h2v3H7zM0 7h3v2H0zM13 7h3v2h-3zM5 5h6v6H5z"/></svg>
+  </span>
+  <span data-theme-icon-dark>
+    <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M6 1h5v1H8v1H7v2H6v6h1v2h1v1h3v1H6v-1H4v-1H3v-2H2V5h1V3h1V2h2z"/></svg>
+  </span>
+</button>
+
+      <button type="button" class="hdr-btn mobile-nav-toggle" aria-label="Open navigation" aria-controls="mobile-navigation" aria-expanded="false" data-mobile-nav-toggle>
+        <span class="mobile-nav-toggle__open">Menu</span><span class="mobile-nav-toggle__close">Close</span>
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-navigation" class="mobile-nav" aria-label="Mobile navigation" aria-hidden="true" data-mobile-nav>
+    <a href="/" class="is-active" aria-current="page"><b>01</b>Home<i aria-hidden="true">→</i></a><a href="/about/"><b>02</b>About<i aria-hidden="true">→</i></a><a href="/services/"><b>03</b>Services<i aria-hidden="true">→</i></a><a href="/projects/"><b>04</b>Projects<i aria-hidden="true">→</i></a>
+  </nav>
+</header>
+
+
+      <main id="main" class="flex-1">
+        
+<section class="layout-page">
+  <div class="page-int section-stack section-stack--home">
+    
+    
+
+    
+    <div class="mb-hero">
+  <div class="mb-hero__copy">
+    <p class="mb-kicker">Independent offensive security</p>
+    <h1>Think like an attacker.<br><span>Test like one.</span><i class="mb-cursor" aria-hidden="true"></i></h1>
+    <p class="mb-hero__summary">Red team operations, adversary emulation, and social-engineering assessments — run by a certified operator with enterprise consulting experience, under strict rules of engagement.</p>
+    <div class="mb-actions">
+      <a href="/services/" class="btn-primary">View services <span aria-hidden="true">→</span></a>
+      <a href="mailto:h4mr3r@securitybuffor.com?subject=Security%20engagement%20inquiry" class="btn-ghost">Scope an engagement</a>
+    </div>
+    <dl class="mb-hero__meta">
+      <div><dt>Role</dt><dd>Red Team Specialist &amp; Malware Developer</dd></div>
+      <div><dt>Base</dt><dd>Poland</dd></div>
+    </dl>
+  </div>
+
+  <aside class="mb-window mb-window--terminal mb-panel mb-panel--operator" aria-labelledby="hero-panel-title">
+    <div class="mb-window__bar"><span id="hero-panel-title">operator.dat</span><span aria-hidden="true">[■]</span></div>
+    <div class="mb-window__body">
+      <p class="mb-term__cmd"><i>$</i> whoami</p>
+      <p class="mb-panel__who"><b>Krzysztof Greś</b> (h4mr3r)<br><small>Red Team Specialist &amp; Malware Developer</small></p>
+      
+      <ul class="mb-term__list">
+        <li><b>Netia S.A.</b><span class="mb-term__leader" aria-hidden="true"></span><em>2025 – now</em></li><li><b>KPMG Poland</b><span class="mb-term__leader" aria-hidden="true"></span><em>2021 – 2025</em></li><li><b>Certifications</b><span class="mb-term__leader" aria-hidden="true"></span><em>7 red team</em></li><li><b>Focus</b><span class="mb-term__leader" aria-hidden="true"></span><em>AD · Azure · C2</em></li><li><b>Status</b><span class="mb-term__leader" aria-hidden="true"></span><em>Available</em></li>
+      </ul>
+      
+      
+      <ul class="mb-panel__certs" aria-label="Certifications">
+        <li title="Certified Red Team Lead — Zero-Point Security">CRTL</li><li title="Certified Red Team Operator — Zero-Point Security">CRTO</li><li title="Certified Penetration Testing Specialist — HackTheBox">CPTS</li><li title="Certified Red Team Professional — Altered Security">CRTP</li><li title="Azure Red Team Specialist — Cyberwarfare Labs">AZRTS</li><li title="Active Directory Red Team Specialist — Cyberwarfare Labs">AD-RTS</li><li title="Certified Red Team Analyst — Cyberwarfare Labs">CRTA</li>
+      </ul>
+      
+      <p class="mb-term__ok"><a href="/about/">[ read full profile → ]</a><i class="mb-cursor" aria-hidden="true"></i></p>
+    </div>
+  </aside>
+</div>
+
+    
+    <section class="mb-section" aria-labelledby="home-services-title">
+  <div class="mb-section__head">
+    <div>
+      <h2 id="home-services-title">Offensive security services</h2>
+      <p class="mb-section__sub">Authorized engagements, realistic adversaries, useful outcomes.</p>
+    </div>
+    <a href="/services/">All services <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="mb-service-grid mb-service-grid--home">
+    <article id="red-team-operations" class="mb-service-card">
+  <div class="mb-service-card__bar">
+    <span>SV-01</span>
+    <span>Full-scope assessment</span>
+  </div>
+  <div class="mb-service-card__body">
+    
+      <h3>Red Team Operations</h3>
+    
+    <p>Realistic, objective-led operations that test whether people, processes, and controls can prevent, detect, and contain a determined attacker.</p>
+    <ul aria-label="Red Team Operations scope">
+      <li>External and internal attack paths</li><li>Identity, endpoint, and cloud objectives</li><li>Detection and response validation</li>
+    </ul>
+  </div>
+  <footer class="mb-service-card__foot">
+    <div>
+      <span>Primary deliverable</span>
+      <p>Detailed red team report with an executive summary, attack narrative, evidence, risk-ranked findings, and remediation roadmap</p>
+    </div>
+    <a href="/services/red-team-operations/" aria-label="See how the Red Team Operations assessment works">How I work <span aria-hidden="true">→</span></a>
+  </footer>
+</article>
+<article id="insider-threat-assessment" class="mb-service-card">
+  <div class="mb-service-card__bar">
+    <span>SV-02</span>
+    <span>Human and access risk</span>
+  </div>
+  <div class="mb-service-card__body">
+    
+      <h3>Insider Threat Assessment</h3>
+    
+    <p>A controlled review of how trusted access, excessive privilege, and process gaps could enable data theft, fraud, sabotage, or unauthorized disclosure.</p>
+    <ul aria-label="Insider Threat Assessment scope">
+      <li>Privilege and trust-path analysis</li><li>Data access and exfiltration controls</li><li>Joiner, mover, and leaver scenarios</li>
+    </ul>
+  </div>
+  <footer class="mb-service-card__foot">
+    <div>
+      <span>Primary deliverable</span>
+      <p>Detailed insider threat report with abuse cases, supporting evidence, control gaps, and prioritized safeguards</p>
+    </div>
+    <a href="/services/insider-threat-assessment/" aria-label="See how the Insider Threat Assessment assessment works">How I work <span aria-hidden="true">→</span></a>
+  </footer>
+</article>
+<article id="social-engineering-simulations" class="mb-service-card">
+  <div class="mb-service-card__bar">
+    <span>SV-03</span>
+    <span>Social engineering</span>
+  </div>
+  <div class="mb-service-card__body">
+    
+      <h3>Phishing &amp; Smishing Simulations</h3>
+    
+    <p>Consent-based email and mobile-message campaigns that measure reporting behavior and defensive response without shaming participants.</p>
+    <ul aria-label="Phishing &amp; Smishing Simulations scope">
+      <li>Phishing, spear-phishing, and smishing</li><li>Safe landing pages and campaign telemetry</li><li>Help-desk and escalation-path testing</li>
+    </ul>
+  </div>
+  <footer class="mb-service-card__foot">
+    <div>
+      <span>Primary deliverable</span>
+      <p>Detailed simulation report with campaign metrics, response analysis, observations, and a targeted improvement plan</p>
+    </div>
+    <a href="/services/social-engineering-simulations/" aria-label="See how the Phishing &amp; Smishing Simulations assessment works">How I work <span aria-hidden="true">→</span></a>
+  </footer>
+</article>
+
+  </div>
+</section>
+    
+    <section class="mb-section" aria-labelledby="home-certs-title">
+  <div class="mb-section__head">
+    <h2 id="home-certs-title">Certifications</h2>
+    <a href="/about/#certifications">See certificates <span aria-hidden="true">→</span></a>
+  </div>
+  <ul class="mb-certs">
+    
+    <li>
+      <b>CRTL</b>
+      <span>Certified Red Team Lead</span>
+      <small>Zero-Point Security</small>
+    </li>
+    
+    <li>
+      <b>CRTO</b>
+      <span>Certified Red Team Operator</span>
+      <small>Zero-Point Security</small>
+    </li>
+    
+    <li>
+      <b>CPTS</b>
+      <span>Certified Penetration Testing Specialist</span>
+      <small>HackTheBox</small>
+    </li>
+    
+    <li>
+      <b>CRTP</b>
+      <span>Certified Red Team Professional</span>
+      <small>Altered Security</small>
+    </li>
+    
+    <li>
+      <b>AZRTS</b>
+      <span>Azure Red Team Specialist</span>
+      <small>Cyberwarfare Labs</small>
+    </li>
+    
+    <li>
+      <b>AD-RTS</b>
+      <span>Active Directory Red Team Specialist</span>
+      <small>Cyberwarfare Labs</small>
+    </li>
+    
+    <li>
+      <b>CRTA</b>
+      <span>Certified Red Team Analyst</span>
+      <small>Cyberwarfare Labs</small>
+    </li>
+    
+  </ul>
+</section>
+    
+    <section class="mb-section" aria-labelledby="home-projects-title">
+  <div class="mb-section__head">
+    <h2 id="home-projects-title">Operator toolkit</h2>
+    <a href="/projects/">Full catalog <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="project-catalog project-catalog--home">
+    <article class="mb-card">
+  <div class="mb-card__bar"><span>Reporting</span><span aria-hidden="true">[■]</span></div>
+  <div class="mb-card__body">
+    <div class="mb-card__title">
+      <img src="/images/projects/axiom.svg" alt="" width="44" height="44" loading="lazy">
+      <h3>AXIOM</h3>
+    </div>
+    <p>A structured reporting toolkit for professional security assessments, evidence handling, and clear deliverables.</p>
+  </div>
+  <div class="mb-card__foot">
+    <span class="mb-status">Private</span>
+    <a href="mailto:h4mr3r@securitybuffor.com?subject=Access&#43;request%3A&#43;AXIOM" aria-label="Request access to AXIOM">Request access <span aria-hidden="true">→</span></a>
+  </div>
+</article>
+<article class="mb-card">
+  <div class="mb-card__bar"><span>Social engineering</span><span aria-hidden="true">[■]</span></div>
+  <div class="mb-card__body">
+    <div class="mb-card__title">
+      <img src="/images/projects/siphon.svg" alt="" width="44" height="44" loading="lazy">
+      <h3>SIPHON</h3>
+    </div>
+    <p>A social-engineering toolkit for controlled campaign workflows, operator coordination, and authorized engagements.</p>
+  </div>
+  <div class="mb-card__foot">
+    <span class="mb-status">Private</span>
+    <a href="mailto:h4mr3r@securitybuffor.com?subject=Access&#43;request%3A&#43;SIPHON" aria-label="Request access to SIPHON">Request access <span aria-hidden="true">→</span></a>
+  </div>
+</article>
+
+  </div>
+</section>
+
+    
+  </div>
+</section>
+
+      </main>
+
+      <footer class="mb-footer">
+  <div class="mb-footer__inner">
+    <p class="mb-footer__copy">&copy; 2026 SECURITY-BUFFOR<span> — All rights reserved.</span></p>
+    
+    <nav class="mb-footer__keys" aria-label="Social links">
+      
+      <a href="https://github.com/SECURITY-BUFFOR" target="_blank" rel="noopener noreferrer"><b>1</b><span>GitHub</span></a>
+      
+      <a href="https://www.linkedin.com/in/kgres/" target="_blank" rel="noopener noreferrer"><b>2</b><span>LinkedIn</span></a>
+      
+      <a href="mailto:h4mr3r@securitybuffor.com"><b>3</b><span>Email</span></a>
+      
+    </nav>
+    
+  </div>
+</footer>
+
+    </div>
+    <div class="search-overlay" data-search-overlay>
+  <div class="search-overlay-backdrop" data-search-close></div>
+
+  <div class="search-panel">
+    <div class="search-panel-header">
+      <div class="search-input-wrap">
+        <i class="fa-solid fa-magnifying-glass text-[0.8rem] text-muted"></i>
+        <input
+          type="search"
+          class="search-input"
+          placeholder="Search the site..."
+          autocomplete="off"
+          data-search-input
+        />
+      </div>
+      <button
+        type="button"
+        class="search-close"
+        data-search-close
+        aria-label="Close search"
+      >
+        <i class="fa-solid fa-xmark text-[0.8rem]"></i>
+      </button>
+    </div>
+
+    <div class="search-panel-body">
+      <div class="search-results" data-search-results>
+        <div class="search-empty-state">
+          <div class="search-empty-icon">
+            <i class="fa-solid fa-magnifying-glass text-[1rem]"></i>
+          </div>
+          <p class="search-empty-title">Start searching</p>
+          <p class="search-empty-subtitle">
+            Enter keywords to search projects and pages.
+          </p>
+        </div>
+      </div>
+
+      <div class="search-footer-hints">
+        <div class="search-hint-key">
+          <span>↑↓</span>
+          <span>Navigate</span>
+        </div>
+        <div class="search-hint-key">
+          <span>↵</span>
+          <span>Select</span>
+        </div>
+        <div class="search-hint-key">
+          <span>ESC</span>
+          <span>Close</span>
+        </div>
+        <div class="search-hint-key search-hint-right">
+          <span>Ctrl</span><span>K</span>
+          <span>Shortcut</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="dock" data-dock>
+  <button type="button" class="dock-top" data-dock-action="top" aria-label="Back to top">
+    <span aria-hidden="true">↑</span><span class="dock-top__label">Top</span>
+  </button>
+</div>
+
+    <script src="/js/main.js" defer></script>
+    <script src="/js/search.js" defer></script>
+    
+    
+    
+  </body>
+</html>

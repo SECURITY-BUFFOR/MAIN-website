@@ -1,15 +1,18 @@
+# access: request -> the card links to an access-request email instead of `url`.
 - name: AXIOM
   slug: axiom
   category: Reporting
   description: A structured reporting toolkit for professional security assessments, evidence handling, and clear deliverables.
-  status: Not public
+  status: Private
+  access: request
   logo: images/projects/axiom.svg
   url: https://axiom.securitybuffor.com
 - name: SIPHON
   slug: siphon
   category: Social engineering
   description: A social-engineering toolkit for controlled campaign workflows, operator coordination, and authorized engagements.
-  status: Not public
+  status: Private
+  access: request
   logo: images/projects/siphon.svg
   url: https://siphon.securitybuffor.com
 #- name: Asmodeus

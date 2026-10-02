@@ -1,0 +1,37 @@
+{
+  "name": "SECURITY-BUFFOR",
+  "short_name": "SECURITY-BUFFOR",
+  "description": "Independent red team operations, adversary emulation, insider threat assessments, and phishing simulations — authorized, evidence-led offensive security from Poland.",
+  
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#7d1d1d",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icons/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png","purpose": "any maskable"
+    },
+    {
+      "src": "/icons/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png","purpose": "any maskable"
+    },
+    {
+      "src": "/icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["security","portfolio","developer"],
+  "lang": "en",
+  "dir": "ltr"
+}

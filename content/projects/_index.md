@@ -1,5 +1,4 @@
 +++
 title = "Projects"
-description = "Security Buffor offensive-security project catalog."
+description = "Offensive-security tooling from Security Buffor: AXIOM for assessment reporting and SIPHON for controlled social-engineering campaigns."
 +++
-

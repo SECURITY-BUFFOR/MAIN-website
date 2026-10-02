@@ -1,4 +1,4 @@
-{{- $title := cond .IsHome (printf "%s | Pentest & Malware Analysis" .Site.Title) (printf "%s | %s" .Title .Site.Title) -}}
+{{- $title := cond .IsHome (printf "%s | Red Team & Offensive Security Services" .Site.Title) (printf "%s | %s" .Title .Site.Title) -}}
 {{- $assets := partial "asset-flags.html" . -}}
 {{- $usesDevicon := and .Site.Params.icons.useDevicon (or .IsHome (eq .Section "about")) -}}
 <meta charset="utf-8" />
@@ -8,11 +8,8 @@
 
 {{ partial "meta.html" . }}
 
-{{ if or $usesDevicon $assets.NeedsLightbox $assets.NeedsGallery $assets.NeedsMermaid }}
+{{ if or $usesDevicon $assets.NeedsGallery $assets.NeedsMermaid }}
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-{{ end }}
-{{ if .Site.Params.icons.useFontAwesome }}
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 {{ end }}
 
 <!-- Favicon -->
@@ -54,20 +51,23 @@
 {{ end }}
 
 <meta name="theme-color" content="#0b0b0b" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap">
+{{/* Fonts and icons are self-hosted: no visitor IPs go to Google or a CDN. */}}
+<link rel="preload" href="{{ "vendor/jetbrains-mono/jetbrains-mono-latin-wght-normal.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ "vendor/jetbrains-mono/jetbrains-mono.css" | relURL }}">
 <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
 <link rel="stylesheet" href="{{ "css/monoblood.css" | relURL }}">
+{{ if eq .Section "services" }}
+  <link rel="stylesheet" href="{{ "css/services.css" | relURL }}">
+{{ end }}
 
 {{ if .Site.Params.icons.useFontAwesome }}
   <link
     rel="preload"
     as="style"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    href="{{ "vendor/fontawesome/css/all.min.css" | relURL }}"
     onload="this.onload=null;this.rel='stylesheet'"
   >
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"></noscript>
+  <noscript><link rel="stylesheet" href="{{ "vendor/fontawesome/css/all.min.css" | relURL }}"></noscript>
 {{ end }}
 
 {{ if $usesDevicon }}
@@ -84,7 +84,7 @@
   <!-- GLightbox -->
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+    href="{{ "vendor/glightbox/glightbox.min.css" | relURL }}"
   />
 {{ end }}
 

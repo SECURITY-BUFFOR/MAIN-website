@@ -17,8 +17,9 @@
   </div>
 
   <nav class="mb-error__links" aria-label="Suggested pages">
-    {{ with .Site.GetPage "/about" }}<a href="{{ .RelPermalink }}"><b>01</b><span>About</span><small>Meet the author</small></a>{{ end }}
-    {{ with .Site.GetPage "/projects" }}<a href="{{ .RelPermalink }}"><b>02</b><span>Projects</span><small>Explore the toolkit</small></a>{{ end }}
+    {{ with .Site.GetPage "/services" }}<a href="{{ .RelPermalink }}"><b>01</b><span>Services</span><small>Red team &amp; offensive security</small></a>{{ end }}
+    {{ with .Site.GetPage "/about" }}<a href="{{ .RelPermalink }}"><b>02</b><span>About</span><small>Meet the operator</small></a>{{ end }}
+    {{ with .Site.GetPage "/projects" }}<a href="{{ .RelPermalink }}"><b>03</b><span>Projects</span><small>Explore the toolkit</small></a>{{ end }}
   </nav>
 </section>
 

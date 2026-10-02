@@ -34,7 +34,7 @@
       </script>
     {{ end }}
     {{ if $assets.NeedsLightbox }}
-      <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js" defer></script>
+      <script src="{{ "vendor/glightbox/glightbox.min.js" | relURL }}" defer></script>
       <script src="{{ "js/lightbox.js" | relURL }}" defer></script>
     {{ end }}
     {{ if $assets.NeedsGallery }}

@@ -1,0 +1,25 @@
+{{- $service := .service -}}
+<article id="{{ $service.slug }}" class="mb-service-card">
+  <div class="mb-service-card__bar">
+    <span>SV-{{ $service.code }}</span>
+    <span>{{ $service.category }}</span>
+  </div>
+  <div class="mb-service-card__body">
+    {{ if .home }}
+      <h3>{{ $service.title }}</h3>
+    {{ else }}
+      <h2>{{ $service.title }}</h2>
+    {{ end }}
+    <p>{{ $service.description }}</p>
+    <ul aria-label="{{ $service.title }} scope">
+      {{ range $service.scope }}<li>{{ . }}</li>{{ end }}
+    </ul>
+  </div>
+  <footer class="mb-service-card__foot">
+    <div>
+      <span>Primary deliverable</span>
+      <p>{{ $service.outcome }}</p>
+    </div>
+    <a href="{{ printf "services/%s/" $service.slug | relURL }}" aria-label="See how the {{ $service.title }} assessment works">How I work <span aria-hidden="true">→</span></a>
+  </footer>
+</article>

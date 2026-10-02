@@ -1,0 +1,14 @@
+{{- with hugo.Data.services -}}
+<section class="mb-section" aria-labelledby="home-services-title">
+  <div class="mb-section__head">
+    <div>
+      <h2 id="home-services-title">{{ $.Site.Params.home.servicesTitle | default "Security services" }}</h2>
+      {{ with $.Site.Params.home.servicesSubtitle }}<p class="mb-section__sub">{{ . }}</p>{{ end }}
+    </div>
+    <a href="{{ "services/" | relURL }}">All services <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="mb-service-grid mb-service-grid--home">
+    {{ range first 3 (where . "featured" true) }}{{ partial "components/service-card.html" (dict "service" . "home" true) }}{{ end }}
+  </div>
+</section>
+{{- end -}}
