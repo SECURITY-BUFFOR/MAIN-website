@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{- $slug := .File.ContentBaseName -}}
 {{- $services := hugo.Data.services | default slice -}}
-{{- $mailto := printf "mailto:%s?subject=%s" .Site.Params.servicesContactEmail (printf "%s inquiry" .Title | urlquery) -}}
+{{- $mailto := printf "mailto:%s?subject=%s" .Site.Params.servicesContactEmail (replace (printf "%s inquiry" .Title | urlquery) "+" "%20") -}}
 <div class="layout-page sv-page sv-detail">
 
   <nav class="mb-breadcrumb" aria-label="Breadcrumb">

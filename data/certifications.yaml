@@ -1,4 +1,4 @@
-# Shown on the home page. The About page keeps its own table + certificate gallery.
+# Certification codes shown in the home hero panel and on the services page.
 - { code: CRTL, name: Certified Red Team Lead, issuer: Zero-Point Security }
 - { code: CRTO, name: Certified Red Team Operator, issuer: Zero-Point Security }
 - { code: CPTS, name: Certified Penetration Testing Specialist, issuer: HackTheBox }

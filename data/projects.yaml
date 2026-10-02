@@ -1,4 +1,4 @@
-# access: request -> the card links to an access-request email instead of `url`.
+# access: request -> the card also shows a "Request access" email link next to the demo link (url).
 - name: AXIOM
   slug: axiom
   category: Reporting

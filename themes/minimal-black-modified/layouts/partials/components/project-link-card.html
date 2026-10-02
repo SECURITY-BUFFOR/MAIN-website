@@ -10,10 +10,13 @@
   </div>
   <div class="mb-card__foot">
     <span class="mb-status">{{ .status }}</span>
-    {{- if eq .access "request" }}
-    <a href="mailto:{{ site.Params.servicesContactEmail }}?subject={{ printf "Access request: %s" .name | urlquery }}" aria-label="Request access to {{ .name }}">Request access <span aria-hidden="true">→</span></a>
-    {{- else }}
-    <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="Open {{ .name }} project link">Open <span aria-hidden="true">↗</span></a>
-    {{- end }}
+    <span class="mb-card__links">
+      {{- if eq .access "request" }}
+      {{- $mailto := printf "mailto:%s?subject=%s" site.Params.servicesContactEmail (replace (printf "Access request: %s" .name | urlquery) "+" "%20") }}
+      <a class="mb-card__secondary" href="{{ $mailto }}" aria-label="Request access to {{ .name }}">Request access</a>
+      {{- end }}
+      {{- /* The last link is the card's main target (it stretches over the whole card). */}}
+      <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .name }} demo and details (opens in a new tab)">Demo &amp; details <span aria-hidden="true">↗</span></a>
+    </span>
   </div>
 </article>

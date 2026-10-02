@@ -93,10 +93,9 @@ enableRobotsTXT = true
 
   # Home Page Configuration
   [params.home]
-    sections = ["hero", "services", "certifications", "projects"]
+    sections = ["hero", "services", "projects"]
     servicesTitle = "Offensive security services"
     servicesSubtitle = "Authorized engagements, realistic adversaries, useful outcomes."
-    certificationsTitle = "Certifications"
     projectsTitle = "Operator toolkit"
 
   # About Page Alternative Layout Configuration
@@ -171,16 +170,8 @@ enableRobotsTXT = true
       value = "2021 – 2025"
 
     [[params.hero.credentials]]
-      label = "Certifications"
-      value = "7 red team"
-
-    [[params.hero.credentials]]
       label = "Focus"
       value = "AD · Azure · C2"
-
-    [[params.hero.credentials]]
-      label = "Status"
-      value = "Available"
 
   # Icon Libraries
   [params.icons]

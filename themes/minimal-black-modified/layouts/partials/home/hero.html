@@ -26,9 +26,12 @@
       </ul>
       {{ end }}
       {{ with $certs }}
-      <ul class="mb-panel__certs" aria-label="Certifications">
-        {{ range . }}<li title="{{ .name }} — {{ .issuer }}">{{ .code }}</li>{{ end }}
-      </ul>
+      <div class="mb-panel__certs">
+        <b id="hero-certs-label">Certs</b>
+        <ul aria-labelledby="hero-certs-label">
+          {{ range . }}<li title="{{ .name }} — {{ .issuer }}">{{ .code }}</li>{{ end }}
+        </ul>
+      </div>
       {{ end }}
       <p class="mb-term__ok"><a href="{{ "about/" | relURL }}">[ read full profile → ]</a><i class="mb-cursor" aria-hidden="true"></i></p>
     </div>

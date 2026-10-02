@@ -7,7 +7,8 @@
     <p>{{ .text | default "Share the environment, the security question, and your target timeframe. We will agree boundaries, safeguards, success criteria, and deliverables before any testing begins." }}</p>
   </div>
   <div class="sv-cta__actions">
-    <a class="btn-primary" href="mailto:{{ $site.Params.servicesContactEmail }}?subject={{ .subject | default "Security engagement inquiry" | urlquery }}">Request a consultation <span aria-hidden="true">→</span></a>
+    {{- $mailto := printf "mailto:%s?subject=%s" $site.Params.servicesContactEmail (replace (.subject | default "Security engagement inquiry" | urlquery) "+" "%20") }}
+    <a class="btn-primary" href="{{ $mailto }}">Request a consultation <span aria-hidden="true">→</span></a>
     <p class="sv-cta__mail"><span>or write to</span> <a href="mailto:{{ $site.Params.servicesContactEmail }}">{{ $site.Params.servicesContactEmail }}</a></p>
   </div>
 </aside>
